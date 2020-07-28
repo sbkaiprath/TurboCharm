@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           subtitle1: TextStyle(
             fontWeight: FontWeight.w300,
-            fontSize: 20,
+            fontSize: 21,
           ),
           bodyText1: TextStyle(
             fontWeight: FontWeight.w200,
