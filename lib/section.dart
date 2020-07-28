@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Section extends StatelessWidget {
-  static const routeName = 'section';
+  static const routeName = '/section';
 
   @override
   Widget build(BuildContext context) {
@@ -10,68 +10,110 @@ class Section extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
-        children: <Widget>[
-          Container(
-            height: MediaQuery.of(context).size.height * .965,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                SizedBox(height: 130),
-                Text(
-                  "Turbo Charm",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white54,
-                  ),
-                ),
-                SizedBox(height: 90),
-                FlatButton(
-                  onPressed: () {
-                    // Navigator.pushNamed(context, );
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    color: Theme.of(context).primaryColorLight,
-                    child: Text(
-                      "USER",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context).buttonColor,
-                      ),
-                    ),
-                  ),
-                ),
-                FlatButton(
-                  onPressed: () {
-                    // Navigator.pushNamed(context, );
-                  },
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: 60,
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    color: Theme.of(context).primaryColorLight,
-                    child: Text(
-                      "SHOP",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: Theme.of(context).buttonColor,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 90),
-              ],
-            ),
+        body: Stack(
+      children: <Widget>[
+        Container(
+          height: MediaQuery.of(context).size.height * 1,
+          width: double.infinity,
+          child: Image.asset(
+            "assets/images/car_background.jpg",
+            fit: BoxFit.cover,
           ),
-        ],
-      ),
-    );
+        ),
+        Container(
+          height: MediaQuery.of(context).size.height * 1,
+          width: double.infinity,
+          decoration: BoxDecoration(color: Colors.black38),
+        ),
+        ListView(
+          children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height * .965,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 200),
+                  Transform.translate(
+                    offset: Offset(-50, 0),
+                    child: Text(
+                      "Welcome to\nAuto Charm",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white54,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      // Navigator.pushNamed(context, );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(blurRadius: 2, color: Colors.black)
+                          ],
+                          color: Theme.of(context).primaryColorLight,
+                          borderRadius: BorderRadius.circular(10)),
+                      alignment: Alignment.center,
+                      height: 60,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: Text(
+                        "USER",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).buttonColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  FlatButton(
+                    onPressed: () {
+                      // Navigator.pushNamed(context, );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(blurRadius: 2, color: Colors.black)
+                          ],
+                          color: Theme.of(context).primaryColorLight,
+                          borderRadius: BorderRadius.circular(10)),
+                      alignment: Alignment.center,
+                      height: 60,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      child: Text(
+                        "SHOP",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: Theme.of(context).buttonColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    'Designed by SentientPi',
+                    style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.white60,
+                        fontStyle: FontStyle.italic),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    ));
   }
 }
