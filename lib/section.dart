@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './user/screen/login_screen.dart';
 
 class Section extends StatelessWidget {
   static const routeName = '/section';
@@ -48,7 +49,7 @@ class Section extends StatelessWidget {
                   ),
                   FlatButton(
                     onPressed: () {
-                      // Navigator.pushNamed(context, );
+                      Navigator.pushNamed(context, UserLoginScreen.routeName);
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -98,15 +99,19 @@ class Section extends StatelessWidget {
                     ),
                   ),
                   Spacer(),
-                  Text(
-                    'Designed by SentientPi',
-                    style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.white60,
-                        fontStyle: FontStyle.italic),
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(color: Colors.white60, fontSize: 11),
+                      children: <TextSpan>[
+                        TextSpan(text: 'Designed by '),
+                        TextSpan(
+                            text: 'SentientPi',
+                            style: new TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 18,
                   )
                 ],
               ),
