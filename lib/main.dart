@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:turbocharm/section.dart';
 import './user/screen/login_screen.dart';
+import './user/screen/select_car_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         buttonColor: Color.fromRGBO(29, 181, 29, 1),
         cardColor: Color.fromRGBO(29, 181, 29, 1),
         canvasColor: Color.fromRGBO(19, 19, 20, 1),
+        indicatorColor: Colors.white70,
         fontFamily: "IBMPlexSans",
         textTheme: TextTheme(
           subtitle1: TextStyle(
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
       home: Section(),
       routes: {
         Section.routeName: (ctx) => Section(),
-        UserLoginScreen.routeName: (ctx) => UserLoginScreen()
+        UserLoginScreen.routeName: (ctx) => UserLoginScreen(),
+        SelectCarScreen.routeName: (ctx) => SelectCarScreen()
       },
     );
   }
