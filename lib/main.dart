@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:turbocharm/section.dart';
 import './user/screen/login_screen.dart';
 import './user/screen/select_car_screen.dart';
+import './user/widgets/bottom_navigation.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
       routes: {
         Section.routeName: (ctx) => Section(),
         UserLoginScreen.routeName: (ctx) => UserLoginScreen(),
-        SelectCarScreen.routeName: (ctx) => SelectCarScreen()
+        SelectCarScreen.routeName: (ctx) => SelectCarScreen(),
+        BottomDownBar.routeName: (ctx) => BottomDownBar()
       },
     );
   }

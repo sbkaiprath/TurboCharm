@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/bottom_navigation.dart';
 
 class SelectCarScreen extends StatefulWidget {
   static const routeName = '/select_car';
@@ -69,7 +70,10 @@ class _SelectCarScreenState extends State<SelectCarScreen>
                 height: 50,
               ),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, BottomDownBar.routeName);
+                  },
                   icon: AnimatedBuilder(
                     animation: _movementController,
                     builder: (context, child) {
