@@ -66,7 +66,22 @@ class HomepageScreen extends StatelessWidget {
           color: Colors.white60,
           thickness: 0.5,
         ),
-        Spacer()
+        SizedBox(
+          height: 15,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 40, right: 40),
+          child: TextField(
+            autofocus: false,
+            decoration: InputDecoration(
+                fillColor: Theme.of(context).indicatorColor,
+                filled: true,
+                prefixIcon: Icon(Icons.search),
+                hintText: "Search Parts Services here",
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25))),
+          ),
+        ),
       ],
     );
   }
