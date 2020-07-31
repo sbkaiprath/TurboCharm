@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:turbocharm/shop/shop_login_screen.dart';
 
 class Section extends StatelessWidget {
   static const routeName = 'section';
@@ -20,7 +21,7 @@ class Section extends StatelessWidget {
               children: <Widget>[
                 SizedBox(height: 130),
                 Text(
-                  "Turbo Charm",
+                  "TurboCharm",
                   style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
@@ -49,7 +50,8 @@ class Section extends StatelessWidget {
                 ),
                 FlatButton(
                   onPressed: () {
-                    // Navigator.pushNamed(context, );
+                    Navigator.pushNamed(
+                        context, ShopLoginScreen.routeName);
                   },
                   child: Container(
                     alignment: Alignment.center,

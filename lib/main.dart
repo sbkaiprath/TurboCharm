@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:turbocharm/section.dart';
+import 'package:turbocharm/shop/shop_login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       home: Section(),
       routes: {
         Section.routeName: (ctx) => Section(),
+        ShopLoginScreen.routeName: (ctx) => ShopLoginScreen(),
       },
     );
   }
