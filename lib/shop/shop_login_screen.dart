@@ -13,21 +13,24 @@ class _ShopLoginScreenState extends State<ShopLoginScreen> {
 
   void _onReceiveChanged(bool newValue) => setState(() {
         receive = newValue;
-
         if (receive) {
-          // TODO: Here goes your functionality that remembers the user.
         } else {
-          // TODO: Forget the user
         }
       });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-        child: Column(
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/car_background.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             SizedBox(height: 5),
@@ -48,48 +51,54 @@ class _ShopLoginScreenState extends State<ShopLoginScreen> {
                   onPressed: () {
                     BottomNavbar();
                   },
-                  child: Container(
-                    padding: EdgeInsets.all(7),
-                    width: MediaQuery.of(context).size.width * 0.65,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          offset: Offset(0, 2),
-                          blurRadius: 6.0,
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(20),
-                          height: 40.0,
-                          width: 40.0,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/google.png'),
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, BottomNavbar.routeName, (route) => false);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(7),
+                      width: MediaQuery.of(context).size.width * 0.65,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            offset: Offset(0, 2),
+                            blurRadius: 6.0,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.all(20),
+                            height: 40.0,
+                            width: 40.0,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                              image: DecorationImage(
+                                image: AssetImage('assets/images/google.png'),
+                              ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Sign In with Google',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                              color: Theme.of(context).primaryColor,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Sign In with Google',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

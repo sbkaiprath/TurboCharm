@@ -4,6 +4,7 @@ import 'package:turbocharm/shop/profile/profile.dart';
 import 'package:turbocharm/shop/services/services.dart';
 
 class BottomNavbar extends StatefulWidget {
+  static const routeName = 'bottom-navbar';
   @override
   _BottomNavbar createState() => _BottomNavbar();
 }
@@ -29,16 +30,22 @@ class _BottomNavbar extends State<BottomNavbar> {
       Profile(),
     ];
     return Scaffold(
-      appBar: AppBar(
-        title: Text('TurboCharm'),
-      ),
-      backgroundColor: Colors.white,
       body: SafeArea(
           child: Center(
         child: widList[_selectedPage],
       )),
       bottomNavigationBar: BottomNavigationBar(
+        
+        fixedColor: Colors.white,
         unselectedItemColor: Colors.grey,
+        selectedLabelStyle: TextStyle(
+          fontSize: 10.2,
+          fontWeight: FontWeight.w500,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.w300,
+        ),
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -55,7 +62,6 @@ class _BottomNavbar extends State<BottomNavbar> {
           ),
         ],
         currentIndex: _selectedPage,
-        selectedItemColor: Theme.of(context).primaryColor,
         onTap: onTabChangedListener,
       ),
     );
