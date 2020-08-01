@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:turbocharm/section.dart';
+<<<<<<< HEAD
 import './user/screen/login_screen.dart';
 import './user/screen/select_car_screen.dart';
 import './user/widgets/bottom_navigation.dart';
+=======
+import 'package:turbocharm/shop/shop_login_screen.dart';
+>>>>>>> 2d7f0e3acb04b68147cf4a7f8d1db9224372ed1a
 
 void main() {
   runApp(MyApp());
@@ -42,9 +46,13 @@ class MyApp extends StatelessWidget {
       home: Section(),
       routes: {
         Section.routeName: (ctx) => Section(),
+<<<<<<< HEAD
         UserLoginScreen.routeName: (ctx) => UserLoginScreen(),
         SelectCarScreen.routeName: (ctx) => SelectCarScreen(),
         BottomDownBar.routeName: (ctx) => BottomDownBar()
+=======
+        ShopLoginScreen.routeName: (ctx) => ShopLoginScreen(),
+>>>>>>> 2d7f0e3acb04b68147cf4a7f8d1db9224372ed1a
       },
     );
   }

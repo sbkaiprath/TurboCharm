@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+<<<<<<< HEAD
 import './user/screen/login_screen.dart';
+=======
+import 'package:turbocharm/shop/shop_login_screen.dart';
+>>>>>>> 2d7f0e3acb04b68147cf4a7f8d1db9224372ed1a
 
 class Section extends StatelessWidget {
   static const routeName = '/section';
@@ -11,6 +15,7 @@ class Section extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
+<<<<<<< HEAD
         body: Stack(
       children: <Widget>[
         Container(
@@ -35,6 +40,35 @@ class Section extends StatelessWidget {
                   SizedBox(height: 200),
                   Transform.translate(
                     offset: Offset(-50, 0),
+=======
+      backgroundColor: Theme.of(context).primaryColor,
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height * .965,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                SizedBox(height: 130),
+                Text(
+                  "TurboCharm",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white54,
+                  ),
+                ),
+                SizedBox(height: 90),
+                FlatButton(
+                  onPressed: () {
+                    // Navigator.pushNamed(context, );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    color: Theme.of(context).primaryColorLight,
+>>>>>>> 2d7f0e3acb04b68147cf4a7f8d1db9224372ed1a
                     child: Text(
                       "Welcome to\nAuto Charm",
                       style: TextStyle(
@@ -44,6 +78,7 @@ class Section extends StatelessWidget {
                       ),
                     ),
                   ),
+<<<<<<< HEAD
                   SizedBox(
                     height: 50,
                   ),
@@ -95,6 +130,25 @@ class Section extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                           color: Theme.of(context).buttonColor,
                         ),
+=======
+                ),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, ShopLoginScreen.routeName);
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: 60,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    color: Theme.of(context).primaryColorLight,
+                    child: Text(
+                      "SHOP",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w900,
+                        color: Theme.of(context).buttonColor,
+>>>>>>> 2d7f0e3acb04b68147cf4a7f8d1db9224372ed1a
                       ),
                     ),
                   ),
