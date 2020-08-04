@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './user/screen/login_screen.dart';
+import './shop/shop_login_screen.dart';
 
 class Section extends StatelessWidget {
   static const routeName = '/section';
@@ -76,7 +77,7 @@ class Section extends StatelessWidget {
                   ),
                   FlatButton(
                     onPressed: () {
-                      // Navigator.pushNamed(context, );
+                      Navigator.pushNamed(context, ShopLoginScreen.routeName);
                     },
                     child: Container(
                       decoration: BoxDecoration(

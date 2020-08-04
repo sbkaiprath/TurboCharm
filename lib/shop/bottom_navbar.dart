@@ -11,6 +11,7 @@ class BottomNavbar extends StatefulWidget {
 
 class _BottomNavbar extends State<BottomNavbar> {
   int _selectedPage = 0;
+  List<Widget> widList = [];
   void onTabChangedListener(position) {
     setState(() {
       _selectedPage = position;
@@ -19,23 +20,19 @@ class _BottomNavbar extends State<BottomNavbar> {
 
   @override
   void initState() {
+    widList = [
+      Bookings(),
+      Services(),
+      Profile(),
+    ];
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> widList = [
-      Bookings(),
-      Services(),
-      Profile(),
-    ];
     return Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: widList[_selectedPage],
-      )),
+      body: widList[_selectedPage],
       bottomNavigationBar: BottomNavigationBar(
-        
         fixedColor: Colors.white,
         unselectedItemColor: Colors.grey,
         selectedLabelStyle: TextStyle(
