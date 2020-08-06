@@ -1,29 +1,8 @@
 import 'package:flutter/material.dart';
-import '../widgets/bottom_navigation.dart';
+import '../widgets/dropdownbar.dart';
 
-class SelectCarScreen extends StatefulWidget {
+class SelectCarScreen extends StatelessWidget {
   static const routeName = '/select_car';
-  @override
-  _SelectCarScreenState createState() => _SelectCarScreenState();
-}
-
-class _SelectCarScreenState extends State<SelectCarScreen>
-    with SingleTickerProviderStateMixin {
-  AnimationController _movementController;
-  @override
-  void initState() {
-    _movementController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 700))
-          ..repeat();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _movementController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -44,50 +23,69 @@ class _SelectCarScreenState extends State<SelectCarScreen>
             width: double.infinity,
             decoration: BoxDecoration(color: Colors.black38),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Form(
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: mediaQuery.size.width * 0.08,
-                      right: mediaQuery.size.width * 0.08),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search),
-                        hintText: "Search vehicle model",
-                        fillColor: Theme.of(context).indicatorColor,
-                        filled: true,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(
-                                color: Theme.of(context).indicatorColor))),
+          Center(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width * .8,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.amber, width: 3)),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Choose Car',
+                    style: TextStyle(
+                        color: Theme.of(context).accentColor,
+                        fontSize: 35,
+                        fontWeight: FontWeight.w500),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              IconButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(
-                        context, BottomDownBar.routeName);
-                  },
-                  icon: AnimatedBuilder(
-                    animation: _movementController,
-                    builder: (context, child) {
-                      return Transform.translate(
-                          child: child,
-                          offset: Offset(_movementController.value * 4, 0));
-                    },
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 50,
-                      color: Theme.of(context).accentColor,
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Column(
+                    children: <Widget>[
+                      DropdownWidgets(),
+                    ],
+                  ),
+
+                  /*
+                  Form(
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: mediaQuery.size.width * 0.08,
+                          right: mediaQuery.size.width * 0.08),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            hintText: "Search vehicle model",
+                            fillColor: Theme.of(context).indicatorColor,
+                            filled: true,
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Theme.of(context).indicatorColor))),
+                      ),
                     ),
-                  ))
-            ],
+                  ),*/
+
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                          color: Colors.white60,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold),
+                      children: <TextSpan>[
+                        TextSpan(text: 'I: '),
+                        TextSpan(
+                          text:
+                              'you can always change this in future. a\n default vehicle will help us provide latest and \ntrending upgrades for your vehicles',
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
