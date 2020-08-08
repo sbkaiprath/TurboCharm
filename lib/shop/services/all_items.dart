@@ -1,24 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:turbocharm/models/car.dart';
+import 'package:turbocharm/providers/parts_providers.dart';
+import 'package:turbocharm/shop/services/item_detail.dart';
+import 'package:turbocharm/shop/services/edit_item.dart';
 
 class AllItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var partList =
+        Provider.of<PartProvider>(context, listen: false).available();
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
-        children: <Widget>[
-          ServiceItem(),
-          ServiceItem(),
-          ServiceItem(),
-          ServiceItem(),
-        ],
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int i) {
+          return ServiceItem(
+            partId: partList[i].id,
+            car: partList[i].car,
+            partname: partList[i].partname,
+            partPrice: partList[i].partPrice,
+            partImageUrl: partList[i].partImageUrl,
+            isAvailable: partList[i].isAvailable,
+          );
+        },
+        itemCount: partList.length,
       ),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Theme.of(context).accentColor,
-        onPressed: null,
+        onPressed: () {
+          Navigator.of(context).pushNamed(EditItem.routeName);
+        },
         label: Text(
-          "ADD SERVICE",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+          "Add Service",
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
         ),
         icon: Icon(
           Icons.add,
@@ -29,95 +45,116 @@ class AllItems extends StatelessWidget {
 }
 
 class ServiceItem extends StatefulWidget {
-  const ServiceItem({
-    Key key,
-  }) : super(key: key);
+  final String partId;
+  final Car car;
+  final String partname;
+  final double partPrice;
+  final String partImageUrl;
+  final bool isAvailable;
+
+  ServiceItem({
+    @required this.car,
+    this.partImageUrl,
+    @required this.partPrice,
+    @required this.partname,
+    @required this.partId,
+    @required this.isAvailable,
+  });
 
   @override
   _ServiceItemState createState() => _ServiceItemState();
 }
 
 class _ServiceItemState extends State<ServiceItem> {
-  bool isSwitched = true;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Theme.of(context).cardColor,
-      ),
-      child: Row(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 5),
-            width: MediaQuery.of(context).size.width * 0.35,
-            height: MediaQuery.of(context).size.width * 0.3,
-            color: Theme.of(context).cardColor,
-            child: Image(
-              image: AssetImage("assets/images/car_background.jpg"),
-              fit: BoxFit.fill,
+
+    bool isAvailable = widget.isAvailable;
+    return FlatButton(
+      onPressed: () {
+        Navigator.of(context)
+            .pushNamed(ItemDetail.routeName, arguments: widget.partId);
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 5),
+        margin: EdgeInsets.symmetric(vertical: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          color: Theme.of(context).cardColor,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.width * 0.25,
+                color: Theme.of(context).cardColor,
+                child: widget.partImageUrl != null
+                    ? Image.network(
+                        widget.partImageUrl,
+                        fit: BoxFit.fill,
+                      )
+                    : Image(
+                        image: AssetImage("assets/images/no_image.jpg"),
+                        fit: BoxFit.fill,
+                      ),
+              ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            width: MediaQuery.of(context).size.width * 0.6,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  "Black Seat Cover ",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+            Container(
+              padding: EdgeInsets.all(10),
+              width: MediaQuery.of(context).size.width * 0.57,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    widget.partname,
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                Row(
-                  children: <Widget>[
-                    Text(
-                      "All Vehicles",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ),
+                  Text(
+                    widget.car.carName,
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                     ),
-                    Spacer(),
-                    IconButton(icon: Icon(Icons.edit), onPressed: null),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Text(
-                      "Rs 3500.0/-",
-                      style: TextStyle(
-                        color: Theme.of(context).accentColor,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 25,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "₹ ${widget.partPrice.toString()} /-",
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 25,
+                        ),
                       ),
-                    ),
-                    Spacer(),
-                    Transform.scale(
-                      scale: .8,
-                      child: Switch(
-                        value: isSwitched,
-                        onChanged: (value) {
-                          setState(() {
-                            isSwitched = value;
-                          });
-                        },
-                        activeTrackColor: Colors.lightGreenAccent,
-                        activeColor: Theme.of(context).accentColor,
+                      Spacer(),
+                      Transform.scale(
+                        scale: .8,
+                        child: Switch(
+                          value: isAvailable,
+                          onChanged: (value) {
+                            setState(() {
+                               isAvailable = value;
+                            });
+                          },
+                          activeTrackColor: Colors.lightGreenAccent,
+                          activeColor: Theme.of(context).accentColor,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

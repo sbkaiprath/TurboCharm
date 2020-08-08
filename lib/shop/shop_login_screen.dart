@@ -47,7 +47,10 @@ class _ShopLoginScreenState extends State<ShopLoginScreen> {
             Column(
               children: <Widget>[
                 FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, BottomNavbar.routeName, (route) => false);
+                  },
                   child: Container(
                     padding: EdgeInsets.all(7),
                     width: MediaQuery.of(context).size.width * 0.65,

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:turbocharm/user/models/car.dart';
+import 'package:turbocharm/models/car.dart';
 import '../models/parts.dart';
 
 class Location {
@@ -16,11 +16,12 @@ class ModificationCompanyItem {
   final Location location;
   final Parts parts;
 
-  ModificationCompanyItem(
-      {@required this.companyId,
-      @required this.companyName,
-      @required this.location,
-      @required this.parts});
+  ModificationCompanyItem({
+    @required this.companyId,
+    @required this.companyName,
+    @required this.location,
+    @required this.parts,
+  });
 }
 
 class ModificationCompany with ChangeNotifier {
@@ -30,6 +31,7 @@ class ModificationCompany with ChangeNotifier {
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
         parts: Parts(
+            id: "1",
             car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
             partImageUrl: "",
             partPrice: 3500,
@@ -39,6 +41,7 @@ class ModificationCompany with ChangeNotifier {
         companyName: "Ramans Colony",
         location: Location(845, 'Chengannur', 6.66),
         parts: Parts(
+            id: "2",
             car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
             partImageUrl: "",
             partPrice: 2000,
@@ -48,6 +51,7 @@ class ModificationCompany with ChangeNotifier {
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
         parts: Parts(
+            id: "3",
             car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
             partImageUrl: "",
             partPrice: 1000,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:turbocharm/providers/order_provider.dart';
+import 'package:turbocharm/providers/parts_providers.dart';
 import 'package:turbocharm/shop/shop_login_screen.dart';
 
 class Profile extends StatelessWidget {
@@ -6,6 +9,9 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var partList =
+        Provider.of<PartProvider>(context, listen: false).available();
+    var orderList = Provider.of<OrderProvider>(context, listen: false).completedOrders;
     return Stack(
       children: <Widget>[
         Column(
@@ -22,7 +28,7 @@ class Profile extends StatelessWidget {
         ),
         ListView(
           children: <Widget>[
-            SizedBox(height: 250),
+            SizedBox(height: 200),
             ProfileInfo(),
             SizedBox(height: 30),
             FlatButton(
@@ -49,7 +55,10 @@ class Profile extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
-            ProfileStat(),
+            ProfileStat(
+              services: partList.length,
+              completed: orderList.length,
+            ),
           ],
         ),
       ],
@@ -146,9 +155,13 @@ class _ProfileInfoState extends State<ProfileInfo> {
 }
 
 class ProfileStat extends StatelessWidget {
+  final int services;
+  final int completed;
+
   const ProfileStat({
-    Key key,
-  }) : super(key: key);
+    @required this.services,
+    @required this.completed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +189,7 @@ class ProfileStat extends StatelessWidget {
                     height: 5.0,
                   ),
                   Text(
-                    "10",
+                    services.toString(),
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Theme.of(context).buttonColor,
@@ -200,7 +213,7 @@ class ProfileStat extends StatelessWidget {
                     height: 5.0,
                   ),
                   Text(
-                    "28",
+                    completed.toString(),
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Theme.of(context).buttonColor,
