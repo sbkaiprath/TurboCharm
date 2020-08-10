@@ -118,11 +118,11 @@ class HomepageScreen extends StatelessWidget {
         )*/
         ,
         Container(
-          height: MediaQuery.of(context).size.height * 0.11,
+          height: MediaQuery.of(context).size.height * 0.116,
           width: double.infinity,
           child: ListView.builder(
             shrinkWrap: true,
-            itemBuilder: (context, index) => PartItem(),
+            itemBuilder: (context, index) => PartItem(partList[index]),
             itemCount: partList.length,
             scrollDirection: Axis.horizontal,
           ),
