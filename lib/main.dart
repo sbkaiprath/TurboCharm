@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:turbocharm/providers/car_provider.dart';
+import 'package:turbocharm/providers/order_provider.dart';
+import 'package:turbocharm/providers/parts_providers.dart';
 import 'package:turbocharm/section.dart';
+import 'package:turbocharm/shop/bottom_navbar.dart';
+import 'package:turbocharm/shop/services/edit_item.dart';
+import 'package:turbocharm/shop/services/item_detail.dart';
 import './user/screen/login_screen.dart';
 import './user/screen/select_car_screen.dart';
 import './user/widgets/bottom_navigation.dart';
 import 'package:turbocharm/shop/shop_login_screen.dart';
-import './user/providers/car_provider.dart';
-import './user/providers/parts_providers.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +22,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: CarProvider()),
-        ChangeNotifierProvider.value(value: PartProvider())
+        ChangeNotifierProvider.value(value: PartProvider()),
+        ChangeNotifierProvider.value(value: OrderProvider()),
       ],
       child: MaterialApp(
         title: 'Turbo Charm',
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromRGBO(19, 19, 20, 1),
           secondaryHeaderColor: Colors.white,
           buttonColor: Color.fromRGBO(29, 181, 29, 1),
-          cardColor: Color.fromRGBO(29, 181, 29, 1),
+          cardColor: Colors.white,
           canvasColor: Color.fromRGBO(19, 19, 20, 1),
           indicatorColor: Colors.white70,
           fontFamily: "IBMPlexSans",
@@ -55,6 +60,9 @@ class MyApp extends StatelessWidget {
           SelectCarScreen.routeName: (ctx) => SelectCarScreen(),
           BottomDownBar.routeName: (ctx) => BottomDownBar(),
           ShopLoginScreen.routeName: (ctx) => ShopLoginScreen(),
+          BottomNavbar.routeName: (ctx) => BottomNavbar(),
+          ItemDetail.routeName: (ctx) => ItemDetail(),
+          EditItem.routeName: (ctx) => EditItem(),
         },
       ),
     );

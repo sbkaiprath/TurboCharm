@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/car_provider.dart';
+import 'package:turbocharm/providers/car_provider.dart';
 import '../widgets/bottom_navigation.dart';
 import './error_dialog.dart';
 import '../screen/homepage_screen.dart';

@@ -1,33 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:turbocharm/models/parts.dart';
+import 'package:turbocharm/models/user.dart';
+import 'package:turbocharm/providers/order_provider.dart';
+import 'package:turbocharm/shop/bookings/book_info.dart';
 
 class Pending extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var orderList = Provider.of<OrderProvider>(context, listen: false).pendingOrders;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
-        children: <Widget>[
-          NewBooking(),
-          NewBooking(),
-          NewBooking(),
-        ],
+      body: ListView.builder(
+        itemCount: orderList.length,
+        itemBuilder: (BuildContext context, int i) {
+          return NewBooking(
+            id: orderList[i].id,
+            user: orderList[i].user,
+            isFirst: orderList[i].isFirst,
+            parts: orderList[i].parts,
+            dateTime: orderList[i].dateTime,
+            total: orderList[i].total,
+          );
+        },
       ),
     );
   }
 }
 
 class NewBooking extends StatelessWidget {
-  const NewBooking({
-    Key key,
-  }) : super(key: key);
+  final String id;
+  final User user;
+  final bool isFirst;
+  final List<Parts> parts;
+  final DateTime dateTime;
+  final double total;
+
+  NewBooking({
+    @required this.id,
+    @required this.user,
+    this.isFirst = true,
+    @required this.parts,
+    @required this.dateTime,
+    @required this.total,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.all(20),
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(10.0),
         color: Theme.of(context).cardColor,
       ),
       width: double.infinity,
@@ -44,7 +68,7 @@ class NewBooking extends StatelessWidget {
                 ),
               ),
               Text(
-                "Jay ",
+                user.name.toString(),
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontSize: 15,
@@ -53,109 +77,18 @@ class NewBooking extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            "1st Time ",
-            style: TextStyle(
-              color: Colors.black54,
-              fontSize: 13,
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 20),
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 1,
-                color: Theme.of(context).accentColor,
+          if (isFirst)
+            Text(
+              "1st Time ",
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 13,
               ),
-              borderRadius: BorderRadius.circular(20.0),
-              color: Theme.of(context).cardColor,
             ),
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "02/07/2020   11 AM - 5 PM ",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 13,
-                  ),
-                ),
-                Item(itemName: "Black Seat Cover", itemPrice: 3500),
-                Item(itemName: "Yamaha Subwoofer", itemPrice: 11655),
-                Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        "Charge : ",
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Text(
-                        "Rs 15155/-",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        "GST : ",
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Text(
-                        " Rs 1105/- ",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Text(
-                      "Total ",
-                      style: TextStyle(
-                        color: Colors.black54,
-                        fontSize: 13,
-                      ),
-                    ),
-                    Text(
-                      " ₹ 16556 /-",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Theme.of(context).accentColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+          BookInfo(
+            parts: parts,
+            dateTime: dateTime,
+            total: total,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,7 +118,6 @@ class NewBooking extends StatelessWidget {
               ),
               FlatButton(
                 onPressed: null,
-                
                 child: Container(
                   alignment: Alignment.center,
                   height: 40,
@@ -208,43 +140,6 @@ class NewBooking extends StatelessWidget {
                 ),
               ),
             ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class Item extends StatelessWidget {
-  final String itemName;
-  final double itemPrice;
-  const Item({
-    this.itemName,
-    this.itemPrice,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text(
-            itemName,
-            style: TextStyle(
-              color: Colors.black54,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          Text(
-            "Rs $itemPrice /-",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
-            ),
           ),
         ],
       ),

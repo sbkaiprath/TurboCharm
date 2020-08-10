@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:turbocharm/providers/car_provider.dart';
+import 'package:turbocharm/providers/parts_providers.dart';
 import '../widgets/trending_scroll_single.dart';
 import '../widgets/part_item.dart';
 import 'package:provider/provider.dart';
-import '../providers/parts_providers.dart';
-import '../providers/car_provider.dart';
 
 class ScreenArguments {
   final String brandName;

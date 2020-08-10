@@ -36,6 +36,7 @@ class Bookings extends StatelessWidget {
             ],
           ),
           bottom: TabBar(
+            indicatorColor:  Theme.of(context).accentColor,
             labelColor: Theme.of(context).accentColor,
             unselectedLabelColor: Colors.grey,
             labelStyle: TextStyle(
