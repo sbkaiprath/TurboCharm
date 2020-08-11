@@ -36,6 +36,7 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
     carData.items.forEach((element) {
       brand.add(element.brand);
     });
+    print(brand);
     return Column(
       children: <Widget>[
         DropdownButton(

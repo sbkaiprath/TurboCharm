@@ -24,7 +24,7 @@ class HomepageScreen extends StatelessWidget {
     return Column(
       children: <Widget>[
         SizedBox(
-          height: mediaQuery.size.height * 0.07,
+          height: mediaQuery.size.height * 0.055,
         ),
         Row(
           children: <Widget>[
@@ -63,7 +63,7 @@ class HomepageScreen extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 15,
+          height: 10,
         ),
         Container(
           height: MediaQuery.of(context).size.height * 0.18,
@@ -90,10 +90,39 @@ class HomepageScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.w400),
         ),
-        Container(
-          height: mediaQuery.size.height * 0.30,
-          width: double.infinity,
+        SizedBox(
+          height: 20,
         ),
+        Consumer<CarProvider>(
+          builder: (context, value, child) => Stack(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: Theme.of(context).accentColor)),
+                height: mediaQuery.size.height * 0.22,
+                width: mediaQuery.size.width * 0.6,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Image.network(
+                    value.items
+                        .firstWhere((element) => element.id == carId)
+                        .imageUrl,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              Container(
+                height: mediaQuery.size.height * 0.22,
+                width: mediaQuery.size.width * 0.6,
+                decoration: BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.circular(15)),
+              )
+            ],
+          ),
+        ),
+        SizedBox(height: mediaQuery.size.height * 0.06),
         Text("Parts Available",
             style: TextStyle(
                 color: Colors.white,
@@ -118,11 +147,11 @@ class HomepageScreen extends StatelessWidget {
         )*/
         ,
         Container(
-          height: MediaQuery.of(context).size.height * 0.116,
+          height: MediaQuery.of(context).size.height * 0.150,
           width: double.infinity,
           child: ListView.builder(
             shrinkWrap: true,
-            itemBuilder: (context, index) => PartItem(partList[index]),
+            itemBuilder: (context, index) => PartItem(partList[index], carId),
             itemCount: partList.length,
             scrollDirection: Axis.horizontal,
           ),

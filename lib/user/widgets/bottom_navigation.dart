@@ -29,7 +29,7 @@ class _BottomDownBarState extends State<BottomDownBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: _page[_selectedIndex],
+      body: SingleChildScrollView(child: _page[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 4,
         backgroundColor: Colors.white,

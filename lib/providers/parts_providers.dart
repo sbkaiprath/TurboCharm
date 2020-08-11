@@ -35,13 +35,14 @@ class PartProvider with ChangeNotifier {
     Parts(
         id: '125',
         car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
-        partImageUrl: null,
+        partImageUrl:
+            'https://images-na.ssl-images-amazon.com/images/I/71eh-HaOC4L._AC_SY355_.jpg',
         partPrice: 200,
         partname: "Door Plate"),
     Parts(
       id: '1233',
       car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
-      partImageUrl: null,
+      partImageUrl: 'https://i.ytimg.com/vi/WxgFKarjdz4/hqdefault.jpg',
       partPrice: 3500,
       partname: "Door Handler",
       isAvailable: false,
@@ -49,7 +50,8 @@ class PartProvider with ChangeNotifier {
     Parts(
       id: '6',
       car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-      partImageUrl: null,
+      partImageUrl:
+          'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
       partPrice: 2000,
       partname: "Sound Motor",
       isAvailable: false,

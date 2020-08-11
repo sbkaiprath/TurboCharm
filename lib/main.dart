@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turbocharm/providers/car_provider.dart';
+import 'package:turbocharm/providers/company_provider.dart';
 import 'package:turbocharm/providers/order_provider.dart';
 import 'package:turbocharm/providers/parts_providers.dart';
 import 'package:turbocharm/section.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: CarProvider()),
         ChangeNotifierProvider.value(value: PartProvider()),
         ChangeNotifierProvider.value(value: OrderProvider()),
+        ChangeNotifierProvider.value(value: ModificationCompany())
       ],
       child: MaterialApp(
         title: 'Turbo Charm',
