@@ -26,13 +26,7 @@ class PartItem extends StatelessWidget {
                         ),
                         content: Builder(
                           builder: (context) {
-                            var height = MediaQuery.of(context).size.height;
-                            var width = MediaQuery.of(context).size.width;
-                            return Container(
-                                height: height,
-                                width: width,
-                                decoration: BoxDecoration(color: Colors.white),
-                                child: DialogBox(partItem.id, carId));
+                            return DialogBox(partItem.id, carId);
                           },
                         ),
                       ));
