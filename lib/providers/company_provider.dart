@@ -81,6 +81,20 @@ class ModificationCompany with ChangeNotifier {
             partPrice: 1000,
             partname: "Steering adjuster")),
     ModificationCompanyItem(
+        companyId: 'qsd7w5',
+        companyName: "Valsan House",
+        location: Location(8.45, 'Koothathukulam', 6.86),
+        parts: Parts(
+          id: '69',
+          car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
+          partImageUrl:
+              "https://images-na.ssl-images-amazon.com/images/I/61QLwvHY5ML._AC_SL1500_.jpg",
+          partPrice: 4200,
+          partname: "Exhaust Manifold",
+          description:
+              "Simple cast iron or stainless steel units which collect engine exhaust gas from multiple cylinders and deliver it to the exhaust pipe",
+        )),
+    ModificationCompanyItem(
       companyId: 'qsd7w5',
       companyName: "Valsan House",
       location: Location(8.45, 'Koothathukulam', 6.86),

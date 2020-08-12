@@ -65,6 +65,16 @@ class PartProvider with ChangeNotifier {
       partname: "Steering adjuster",
       description:
           "To fulfill the requirements of honorable clients, we are able to offer Power Steering Adjuster with the finest quality. The offered products are manufactured using most advanced technology and optimum quality raw material at our reliable vendors'' end. In addition to this, these products are available in different specifications as per the requirement of the clients scattered across the nation FeaturesPrecisely",
+    ),
+    Parts(
+      id: '69',
+      car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
+      partImageUrl:
+          "https://images-na.ssl-images-amazon.com/images/I/61QLwvHY5ML._AC_SL1500_.jpg",
+      partPrice: 4200,
+      partname: "Exhaust Manifold",
+      description:
+          "Simple cast iron or stainless steel units which collect engine exhaust gas from multiple cylinders and deliver it to the exhaust pipe",
     )
   ];
   List<Parts> get items {

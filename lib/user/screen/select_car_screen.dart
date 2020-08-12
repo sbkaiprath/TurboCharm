@@ -75,10 +75,10 @@ class SelectCarScreen extends StatelessWidget {
                           fontSize: 11,
                           fontWeight: FontWeight.bold),
                       children: <TextSpan>[
-                        TextSpan(text: 'I: '),
+                        /*TextSpan(text: 'I: '),*/
                         TextSpan(
                           text:
-                              'you can always change this in future. a\n default vehicle will help us provide latest and \ntrending upgrades for your vehicles',
+                              'You can always change this in future. a\ndefault vehicle will help us provide latest  \nand trending upgrades for your vehicles',
                         ),
                       ],
                     ),
