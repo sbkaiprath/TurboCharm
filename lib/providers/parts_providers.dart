@@ -40,6 +40,42 @@ class PartProvider with ChangeNotifier {
         partPrice: 200,
         partname: "Door Plate"),
     Parts(
+        id: '15',
+        car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
+        partImageUrl:
+            'https://cdn11.bigcommerce.com/s-q0oivn9r3h/images/stencil/1280x1280/products/2410/2710/RPM73413-2__47824.1562596981.jpg?c=2',
+        partPrice: 21400,
+        partname: "Supercharger"),
+    Parts(
+        id: '16',
+        car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
+        partImageUrl:
+            'https://4.imimg.com/data4/MP/VL/MY-15471507/car-spoiler-500x500.jpg',
+        partPrice: 1999,
+        partname: "Rear Spoiler"),
+    Parts(
+        id: '17',
+        car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
+        partImageUrl:
+            'https://i.pinimg.com/originals/4a/b3/3c/4ab33cc5d85e95e6712464887fd0888a.jpg',
+        partPrice: 3999,
+        partname: "Bling Wheels"),
+    Parts(
+      id: '18',
+      car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
+      partImageUrl: 'https://fasthemis.com/images/F143836263.png',
+      partPrice: 2000,
+      partname: "Hood Scoop",
+    ),
+    Parts(
+      id: '19',
+      car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
+      partImageUrl:
+          'https://5.imimg.com/data5/TL/IY/MY-15528281/florescent-car-fog-lamp-500x500.jpg',
+      partPrice: 799,
+      partname: "Fog Lamp",
+    ),
+    Parts(
       id: '1233',
       car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
       partImageUrl: 'https://i.ytimg.com/vi/WxgFKarjdz4/hqdefault.jpg',
@@ -65,6 +101,23 @@ class PartProvider with ChangeNotifier {
       partname: "Steering adjuster",
       description:
           "To fulfill the requirements of honorable clients, we are able to offer Power Steering Adjuster with the finest quality. The offered products are manufactured using most advanced technology and optimum quality raw material at our reliable vendors'' end. In addition to this, these products are available in different specifications as per the requirement of the clients scattered across the nation FeaturesPrecisely",
+    ),
+    Parts(
+      id: '20',
+      car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
+      partImageUrl:
+          "https://image.made-in-china.com/43f34j00HjwEZIugCbpB/Ge-Emd-Alco-Diesel-Locomotive-Engine-Turbocharger-Emd-567-645-and-710-Alco131-165-320-350-520-and-720.jpg",
+      partPrice: 29900,
+      partname: "Turbocharger",
+      description: "vroooooom",
+    ),
+    Parts(
+      id: '21',
+      car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
+      partImageUrl:
+          "https://grimmermotors.co.nz/wp-content/uploads/2018/09/muffler-300x225.png",
+      partPrice: 10499,
+      partname: "Muffler",
     ),
     Parts(
       id: '69',
