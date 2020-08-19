@@ -33,10 +33,12 @@ class EachItem extends StatefulWidget {
 
 class _EachItemState extends State<EachItem> {
   var check = false;
+  var result = 'No item available';
   @override
   Widget build(BuildContext context) {
     final cartData = Provider.of<Cart>(context, listen: false);
-    print(cartData.items);
+    //print(cartData.items);
+    //print(cartData.items[widget.item.parts.id].quantity);
     return !check
         ? Card(
             shadowColor: Colors.grey,
@@ -175,12 +177,24 @@ class _EachItemState extends State<EachItem> {
                               fontStyle: FontStyle.italic,
                               color: Theme.of(context).accentColor),
                         )
-                      : Text(
-                          '${cartData.items.length} item(s) selected',
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              color: Theme.of(context).accentColor),
-                        )
+                      : (cartData.items[widget.item.parts.id].companyId
+                                      .toString() ==
+                                  widget.item.companyId.toString() &&
+                              cartData.items[widget.item.parts.id].quantity
+                                      .toString() !=
+                                  null)
+                          ? Text(
+                              '${cartData.items[widget.item.parts.id].quantity.toString()} item(s) selected',
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color: Theme.of(context).accentColor),
+                            )
+                          : Text(
+                              'No item selected',
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color: Theme.of(context).accentColor),
+                            )
                 ],
               ),
             ),

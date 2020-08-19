@@ -20,6 +20,10 @@ class PartItem extends StatelessWidget {
                   showDialog(
                       context: context,
                       child: AlertDialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            side: BorderSide(
+                                color: Theme.of(context).accentColor)),
                         title: Text(
                           '${partItem.partname}',
                           textAlign: TextAlign.center,
