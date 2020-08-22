@@ -448,4 +448,10 @@ class ModificationCompany with ChangeNotifier {
     });
     return listItems;
   }
+
+  String getCompanyNme(String companyId) {
+    return _items
+        .firstWhere((element) => element.companyId == companyId)
+        .companyName;
+  }
 }

@@ -16,7 +16,7 @@ class DialogBox extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         itemBuilder: (context, index) =>
-            EachItem(itemList.getCompanies(id, carId)[index]),
+            EachItem(itemList.getCompanies(id, carId)[index], carId),
         itemCount: itemList.getCompanies(id, carId).length,
         scrollDirection: Axis.vertical,
       ),
@@ -26,7 +26,8 @@ class DialogBox extends StatelessWidget {
 
 class EachItem extends StatefulWidget {
   final ModificationCompanyItem item;
-  EachItem(this.item);
+  final String carId;
+  EachItem(this.item, this.carId);
   @override
   _EachItemState createState() => _EachItemState();
 }
@@ -141,6 +142,7 @@ class _EachItemState extends State<EachItem> {
                         onPressed: () {
                           setState(() {
                             cartData.addNewItem(
+                                widget.carId,
                                 widget.item.parts.id,
                                 widget.item.companyId,
                                 widget.item.parts.partPrice,
@@ -170,7 +172,7 @@ class _EachItemState extends State<EachItem> {
                   SizedBox(
                     height: 10,
                   ),
-                  cartData.items.isEmpty
+                  !cartData.items.containsKey(widget.item.parts.id)
                       ? Text(
                           'No item selected',
                           style: TextStyle(
