@@ -107,7 +107,7 @@ class Section extends StatelessWidget {
                         TextSpan(text: 'Designed by '),
                         TextSpan(
                             text: 'SentientPi',
-                            style: new TextStyle(fontWeight: FontWeight.bold)),
+                            style: TextStyle(fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ),
