@@ -10,26 +10,30 @@ class Location {
   Location(this.lattitude, this.locationName, this.longitude);
 }
 
-class ModificationCompanyItem {
+class CompanyItem {
   final String companyName;
+  final String companyImage;
   final String companyId;
   final Location location;
   final Parts parts;
 
-  ModificationCompanyItem({
+  CompanyItem({
     @required this.companyId,
     @required this.companyName,
+    this.companyImage,
     @required this.location,
     @required this.parts,
   });
 }
 
-class ModificationCompany with ChangeNotifier {
-  List<ModificationCompanyItem> _items = [
-    ModificationCompanyItem(
+class CompanyItems with ChangeNotifier {
+  List<CompanyItem> _items = [
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
           id: '3',
           car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -41,10 +45,12 @@ class ModificationCompany with ChangeNotifier {
               "Condition- New Color as shown Packing includes 1 pcs only",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
           id: '1233',
           car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -53,10 +59,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Door Handler",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
             id: '1',
             car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -66,10 +74,12 @@ class ModificationCompany with ChangeNotifier {
             partname: "Handler",
             description:
                 "As its name suggests, a door handle is used to open and close car doors. It is found on both the exterior and interior sides of automobile doors, although they are used differently on each panel. The one on the outside is pulled to open the car door, while the inside door handle is used to release the door latch before you can push the door to let yourself out.")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
             id: '125',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -77,10 +87,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://images-na.ssl-images-amazon.com/images/I/71eh-HaOC4L._AC_SY355_.jpg',
             partPrice: 207,
             partname: "Door Plate")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
           id: '69',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -91,10 +103,12 @@ class ModificationCompany with ChangeNotifier {
           description:
               "Simple cast iron or stainless steel units which collect engine exhaust gas from multiple cylinders and deliver it to the exhaust pipe",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
           id: '20',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -104,10 +118,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Turbocharger",
           description: "vroooooom",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
             id: '16',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -115,10 +131,38 @@ class ModificationCompany with ChangeNotifier {
                 'https://4.imimg.com/data4/MP/VL/MY-15471507/car-spoiler-500x500.jpg',
             partPrice: 1999,
             partname: "Rear Spoiler")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
+        parts: Parts(
+            id: '188',
+            car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
+            partImageUrl:
+                'https://4.imimg.com/data4/MP/VL/MY-15471507/car-spoiler-500x500.jpg',
+            partPrice: 1999,
+            partname: "Rear Spoiler")),
+    CompanyItem(
+        companyId: 'qsdd55',
+        companyName: "Karunans Limit",
+        location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
+        parts: Parts(
+            id: '177',
+            car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
+            partImageUrl:
+                'https://4.imimg.com/data4/MP/VL/MY-15471507/car-spoiler-500x500.jpg',
+            partPrice: 1999,
+            partname: "Rear Spoiler")),
+    CompanyItem(
+        companyId: 'qsdd55',
+        companyName: "Karunans Limit",
+        location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
           id: '18',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
@@ -126,10 +170,12 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 2000,
           partname: "Hood Scoop",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
@@ -139,10 +185,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Sound Motor",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd55',
         companyName: "Karunans Limit",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://www.smergers.com/media/businessphoto/46804-1592977306-8024aa83-c9e8-41d9-864b-7df2468653be.png',
         parts: Parts(
             id: '17',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -150,10 +198,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://3d-car-shows.com/wp-content/uploads/2011/12/tiger-wheel-and-tyre-2011.jpg',
             partPrice: 2099,
             partname: "Bling Wheels")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '3',
           car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -165,10 +215,12 @@ class ModificationCompany with ChangeNotifier {
               "Condition- New Color as shown Packing includes 1 pcs only",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '19',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
@@ -177,10 +229,12 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 749,
           partname: "Fog Lamp",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '5',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -191,10 +245,12 @@ class ModificationCompany with ChangeNotifier {
           description:
               "To fulfill the requirements of honorable clients, we are able to offer Power Steering Adjuster with the finest quality. The offered products are manufactured using most advanced technology and optimum quality raw material at our reliable vendors'' end. In addition to this, these products are available in different specifications as per the requirement of the clients scattered across the nation FeaturesPrecisely",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '20',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -204,10 +260,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Turbocharger",
           description: "vroooooom",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
             id: '125',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -215,10 +273,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://images-na.ssl-images-amazon.com/images/I/71eh-HaOC4L._AC_SY355_.jpg',
             partPrice: 190,
             partname: "Door Plate")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '21',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -227,10 +287,12 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 10499,
           partname: "Muffler",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsdd56',
         companyName: "Ramans Colony",
         location: Location(8545, 'Chandakavera', 6566),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
             id: '2',
             car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -240,10 +302,12 @@ class ModificationCompany with ChangeNotifier {
             partname: "Door Plate",
             description:
                 "Made of high quality stainless steel with Silver Chrome Finish For all side enteranceEasy and quick installation, comes with automotive adhesive tape Door sill plates helps protect the interior door sills from scratches")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd756',
         companyName: "Ramans Colony",
         location: Location(845, 'Chengannur', 6.66),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
@@ -253,10 +317,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Sound Motor",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd756',
         companyName: "Ramans Colony",
         location: Location(845, 'Chengannur', 6.66),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
             id: '15',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -264,10 +330,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://cdn11.bigcommerce.com/s-q0oivn9r3h/images/stencil/1280x1280/products/2410/2710/RPM73413-2__47824.1562596981.jpg?c=2',
             partPrice: 22559,
             partname: "Supercharger")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd756',
         companyName: "Ramans Colony",
         location: Location(845, 'Chengannur', 6.66),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
           id: '1233',
           car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -276,10 +344,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Door Handler",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd756',
         companyName: "Ramans Colony",
         location: Location(845, 'Chengannur', 6.66),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuOSNOOnIzo9MEPzAXlu6KLEqaSg5RCjWMoQ&usqp=CAU',
         parts: Parts(
             id: '17',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -287,10 +357,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://i.pinimg.com/originals/4a/b3/3c/4ab33cc5d85e95e6712464887fd0888a.jpg',
             partPrice: 4199,
             partname: "Bling Wheels")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
             id: "3",
             car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -298,10 +370,12 @@ class ModificationCompany with ChangeNotifier {
                 "https://2.imimg.com/data2/SN/IB/IMFCP-1138181/elektrische_lenkradverstellung1-250x250.jpg",
             partPrice: 1000,
             partname: "Steering adjuster")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
           id: '1233',
           car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -310,10 +384,12 @@ class ModificationCompany with ChangeNotifier {
           partname: "Door Handler",
           isAvailable: false,
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
             id: '16',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -321,10 +397,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://4.imimg.com/data4/MP/VL/MY-15471507/car-spoiler-500x500.jpg',
             partPrice: 1899,
             partname: "Rear Spoiler")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
             id: '17',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -332,10 +410,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://i.pinimg.com/originals/4a/b3/3c/4ab33cc5d85e95e6712464887fd0888a.jpg',
             partPrice: 3999,
             partname: "Bling Wheels")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
           id: '21',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -344,10 +424,12 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 10999,
           partname: "Muffler",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
             id: '15',
             car: Car(id: '8565k', brand: 'Hero', carName: 'Splender'),
@@ -355,10 +437,12 @@ class ModificationCompany with ChangeNotifier {
                 'https://cdn11.bigcommerce.com/s-q0oivn9r3h/images/stencil/1280x1280/products/2410/2710/RPM73413-2__47824.1562596981.jpg?c=2',
             partPrice: 21400,
             partname: "Supercharger")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
           id: '5',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -369,10 +453,12 @@ class ModificationCompany with ChangeNotifier {
           description:
               "To fulfill the requirements of honorable clients, we are able to offer Power Steering Adjuster with the finest quality. The offered products are manufactured using most advanced technology and optimum quality raw material at our reliable vendors'' end. In addition to this, these products are available in different specifications as per the requirement of the clients scattered across the nation FeaturesPrecisely",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
           id: '18',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
@@ -380,10 +466,12 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 1400,
           partname: "Hood Scoop",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
           id: '19',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
@@ -392,10 +480,12 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 799,
           partname: "Fog Lamp",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
             id: '1',
             car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -405,10 +495,12 @@ class ModificationCompany with ChangeNotifier {
             partname: "Handler",
             description:
                 "As its name suggests, a door handle is used to open and close car doors. It is found on both the exterior and interior sides of automobile doors, although they are used differently on each panel. The one on the outside is pulled to open the car door, while the inside door handle is used to release the door latch before you can push the door to let yourself out.")),
-    ModificationCompanyItem(
+    CompanyItem(
         companyId: 'qsd7w5',
         companyName: "Valsan House",
         location: Location(8.45, 'Koothathukulam', 6.86),
+        companyImage:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
         parts: Parts(
           id: '69',
           car: Car(id: 'car125', brand: 'Suzuki', carName: "Iniesta"),
@@ -419,10 +511,12 @@ class ModificationCompany with ChangeNotifier {
           description:
               "Simple cast iron or stainless steel units which collect engine exhaust gas from multiple cylinders and deliver it to the exhaust pipe",
         )),
-    ModificationCompanyItem(
+    CompanyItem(
       companyId: 'qsd7w5',
       companyName: "Valsan House",
       location: Location(8.45, 'Koothathukulam', 6.86),
+      companyImage:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnS2cheh5NCxM9MUs5JzD-cBwNCYu_gdFd8Q&usqp=CAU',
       parts: Parts(
           id: '2',
           car: Car(id: '855d5', brand: "Honda", carName: "Amaze"),
@@ -431,11 +525,11 @@ class ModificationCompany with ChangeNotifier {
           partPrice: 200,
           partname: "Door Plate",
           description:
-              "Made of high quality stainless steel with Silver Chrome Finish For all side enteranceEasy and quick installation, comes with automotive adhesive tape Door sill plates helps protect the interior door sills from scratches"),
+              "Made of high quality stainless steel with Silver door sills from scratches"),
     )
   ];
 
-  List<ModificationCompanyItem> get items {
+  List<CompanyItem> get items {
     return [..._items];
   }
 
@@ -449,9 +543,11 @@ class ModificationCompany with ChangeNotifier {
     return listItems;
   }
 
-  String getCompanyNme(String companyId) {
-    return _items
-        .firstWhere((element) => element.companyId == companyId)
-        .companyName;
+  CompanyItem getCompanyItem(String companyId, String carId, String partId) {
+    return _items.firstWhere(
+      (element) => (element.companyId == companyId &&
+          element.parts.car.id == carId &&
+          element.parts.id == partId),
+    );
   }
 }

@@ -8,24 +8,26 @@ class CartItem {
   final double price;
   final String carId;
 
-  CartItem(
-      {@required this.cartId,
-      @required this.title,
-      @required this.price,
-      @required this.companyId,
-      @required this.quantity,
-      @required this.carId});
+  CartItem({
+    @required this.cartId,
+    @required this.title,
+    @required this.price,
+    @required this.companyId,
+    @required this.quantity,
+    @required this.carId,
+  });
 }
 
 class Cart extends ChangeNotifier {
   Map<String, CartItem> _items = {
     '20': CartItem(
-        cartId: 'dgsdhu95959',
-        title: 'Turbocharger',
-        price: 29900,
-        companyId: 'qsdd56',
-        quantity: 2,
-        carId: 'car125')
+      cartId: 'dgsdhu95959',
+      title: 'Turbocharger',
+      price: 29900,
+      companyId: 'qsdd56',
+      quantity: 2,
+      carId: 'car125',
+    )
   };
   Map<String, CartItem> get items {
     return {..._items};
@@ -35,8 +37,25 @@ class Cart extends ChangeNotifier {
     return _items.length;
   }
 
-  void addNewItem(String carId, String partId, String companyId, double price,
-      String title) {
+  double get getTotalCharge {
+    double sum = 0;
+    _items.values.forEach((element) {
+      sum = sum + (element.price * element.quantity);
+    });
+    return sum;
+  }
+
+  bool isContainPartItem(String partId) {
+    return _items.containsKey(partId) ? true : false;
+  }
+
+  void addNewItem(
+    String carId,
+    String partId,
+    String companyId,
+    double price,
+    String title,
+  ) {
     if (_items.containsKey(partId)) {
       if (_items[partId].companyId == companyId) {
         _items.update(
@@ -55,8 +74,7 @@ class Cart extends ChangeNotifier {
       var n;
       if (_items.isNotEmpty) {
         var listItems = _items.values.toList();
-
-        print(listItems);
+        print(listItems[0].title);
         listItems[0].companyId != companyId ? n = 1 : n = 0;
       }
       if (_items.isEmpty) {
@@ -80,7 +98,6 @@ class Cart extends ChangeNotifier {
                 title: title,
                 companyId: _items.values.toList()[0].companyId));
       }
-      {}
     }
     notifyListeners();
   }

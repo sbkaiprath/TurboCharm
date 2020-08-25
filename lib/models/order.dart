@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:turbocharm/models/parts.dart';
-import 'package:turbocharm/models/user.dart';
+import 'package:turbocharm/providers/user_provider.dart';
 
 enum OrderStatus{
   pending,

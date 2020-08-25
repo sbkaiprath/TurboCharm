@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turbocharm/providers/car_provider.dart';
+import 'package:turbocharm/providers/user_provider.dart';
 import '../widgets/bottom_navigation.dart';
 import './error_dialog.dart';
-import '../screen/homepage_screen.dart';
+import '../screen/home/homepage_screen.dart';
 
 class DropdownWidgets extends StatefulWidget {
   @override
@@ -43,7 +44,7 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
             style:
                 TextStyle(color: Theme.of(context).accentColor, fontSize: 25),
             hint: Text(
-              'Please choose a Brand',
+              'PLEASE CHOOSE A BRAND',
               style:
                   TextStyle(color: Colors.white60, fontWeight: FontWeight.w400),
             ), // Not necessary for Option 1
@@ -70,7 +71,7 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
             style:
                 TextStyle(color: Theme.of(context).accentColor, fontSize: 25),
             hint: Text(
-              'Please choose car',
+              '  PLEASE CHOOSE A CAR  ',
               style:
                   TextStyle(color: Colors.white60, fontWeight: FontWeight.w400),
             ), // Not necessary for Option 1

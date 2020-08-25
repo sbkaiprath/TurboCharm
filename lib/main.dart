@@ -5,10 +5,13 @@ import 'package:turbocharm/providers/cart_provider.dart';
 import 'package:turbocharm/providers/company_provider.dart';
 import 'package:turbocharm/providers/order_provider.dart';
 import 'package:turbocharm/providers/parts_providers.dart';
+import 'package:turbocharm/providers/user_provider.dart';
 import 'package:turbocharm/section.dart';
 import 'package:turbocharm/shop/bottom_navbar.dart';
 import 'package:turbocharm/shop/services/edit_item.dart';
 import 'package:turbocharm/shop/services/item_detail.dart';
+import 'package:turbocharm/user/screen/home/part_shop.dart';
+import 'package:turbocharm/user/screen/home/part_options.dart';
 import './user/screen/login_screen.dart';
 import './user/screen/select_car_screen.dart';
 import './user/widgets/bottom_navigation.dart';
@@ -26,8 +29,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: CarProvider()),
         ChangeNotifierProvider.value(value: PartProvider()),
         ChangeNotifierProvider.value(value: OrderProvider()),
-        ChangeNotifierProvider.value(value: ModificationCompany()),
-        ChangeNotifierProvider.value(value: Cart())
+        ChangeNotifierProvider.value(value: CompanyItems()),
+        ChangeNotifierProvider.value(value: Cart()),
+        ChangeNotifierProvider.value(value: UserProvider()),
       ],
       child: MaterialApp(
         title: 'Turbo Charm',
@@ -67,6 +71,8 @@ class MyApp extends StatelessWidget {
           BottomNavbar.routeName: (ctx) => BottomNavbar(),
           ItemDetail.routeName: (ctx) => ItemDetail(),
           EditItem.routeName: (ctx) => EditItem(),
+          PartOptions.routeName: (ctx) => PartOptions(),
+          PartShop.routeName: (ctx) => PartShop(),
         },
       ),
     );

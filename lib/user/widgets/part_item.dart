@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/parts.dart';
-import './dialogbox.dart';
+import '../screen/home/part_options.dart';
 
 class PartItem extends StatelessWidget {
   final Parts partItem;
@@ -10,46 +10,30 @@ class PartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Row(
-          children: <Widget>[
-            CircleAvatar(
-              radius: MediaQuery.of(context).size.height * 0.058,
-              backgroundColor: Theme.of(context).accentColor,
-              child: GestureDetector(
-                onTap: () {
-                  showDialog(
-                      context: context,
-                      child: AlertDialog(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                            side: BorderSide(
-                                color: Theme.of(context).accentColor)),
-                        title: Text(
-                          '${partItem.partname}',
-                          textAlign: TextAlign.center,
-                        ),
-                        content: Builder(
-                          builder: (context) {
-                            return DialogBox(partItem.id, carId);
-                          },
-                        ),
-                      ));
-                },
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(partItem.partImageUrl),
-                  radius: MediaQuery.of(context).size.height * 0.055,
-                  backgroundColor: Colors.white,
+        Center(
+          child: GestureDetector(
+            onTap: () => Navigator.pushNamed(
+              context,
+              PartOptions.routeName,
+              arguments: {'partItem': partItem.id, 'carId': carId},
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.35,
+                height: MediaQuery.of(context).size.width * 0.3,
+                child: Image(
+                  image: NetworkImage(partItem.partImageUrl),
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            SizedBox(
-              width: 10,
-            ),
-          ],
+          ),
         ),
+        SizedBox(height: 5),
         Text(
           partItem.partname,
-          style: TextStyle(color: Theme.of(context).accentColor),
+          style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w500),
         )
       ],
     );

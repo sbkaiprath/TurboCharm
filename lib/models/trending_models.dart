@@ -10,7 +10,7 @@ class TrendingModelItem {
   final String partImageUrl;
   final Car car;
   final Location location;
-  final ModificationCompanyItem company;
+  final CompanyItem company;
 
   TrendingModelItem(
       {@required this.id,
