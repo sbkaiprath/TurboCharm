@@ -19,7 +19,7 @@ class TrendingScrollSingle extends StatelessWidget {
             ),
             color: Theme.of(context).accentColor,
           ),
-          height: MediaQuery.of(context).size.height * 0.18,
+          height: MediaQuery.of(context).size.height * 0.20,
           width: MediaQuery.of(context).size.width * 0.35,
         ),
       ],

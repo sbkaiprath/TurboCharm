@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turbocharm/providers/cart_provider.dart';
 import 'package:turbocharm/providers/company_provider.dart';
+import '../../widgets/badge.dart';
 
 class PartShop extends StatefulWidget {
   static const routeName = '/part_shop';
@@ -32,6 +33,28 @@ class _PartShopState extends State<PartShop> {
           style: TextStyle(
               color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 15, top: 7, bottom: 8, right: 10),
+            child: FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              onPressed: () {},
+              child: Consumer<Cart>(
+                builder: (context, value, ch) =>
+                    Badge(child: ch, value: cartData.itemCount.toString()),
+                child: IconButton(
+                    icon: Icon(
+                      Icons.shopping_cart,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                    onPressed: () {}),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -150,42 +173,70 @@ class _PartShopState extends State<PartShop> {
                 ),
               ),
               SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  FlatButton(
-                    child: Icon(
-                      Icons.remove,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        cartData.removeSingleItem(
-                            companyItem.parts.id, companyItem.companyId);
-                      });
-                    },
-                    color: Colors.red,
-                  ),
-                  SizedBox(width: 10),
-                  FlatButton(
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        cartData.addNewItem(
-                            carId,
-                            companyItem.parts.id,
-                            companyItem.companyId,
-                            companyItem.parts.partPrice,
-                            companyItem.parts.partname);
-                      });
-                    },
-                    color: Colors.green,
-                  )
-                ],
-              ),
+              Builder(
+                  builder: (context) => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          FlatButton(
+                            child: Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                cartData.removeSingleItem(companyItem.parts.id,
+                                    companyItem.companyId);
+                              });
+                            },
+                            color: Colors.red,
+                          ),
+                          SizedBox(width: 10),
+                          FlatButton(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                cartData.addNewItem(
+                                    carId,
+                                    companyItem.parts.id,
+                                    companyItem.companyId,
+                                    companyItem.parts.partPrice,
+                                    companyItem.parts.partname);
+                              });
+                              if (cartData.items.isNotEmpty) {
+                                if (cartData.items.values
+                                        .toList()[0]
+                                        .companyId !=
+                                    companyId) {
+                                  Scaffold.of(context).hideCurrentSnackBar();
+                                  Scaffold.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        "Either buy from same company or clear the cart"),
+                                    duration: Duration(seconds: 2),
+                                  ));
+                                }
+                              } else {
+                                Scaffold.of(context).hideCurrentSnackBar();
+                                Scaffold.of(context).showSnackBar(SnackBar(
+                                  content: Text("Already added to cart"),
+                                  duration: Duration(seconds: 2),
+                                  action: SnackBarAction(
+                                      label: "UNDO",
+                                      onPressed: () {
+                                        cartData.removeSingleItem(
+                                          companyItem.parts.id,
+                                          companyItem.companyId,
+                                        );
+                                      }),
+                                ));
+                              }
+                            },
+                            color: Colors.green,
+                          )
+                        ],
+                      )),
               SizedBox(
                 height: 10,
               ),

@@ -8,6 +8,7 @@ import '../../../providers/cart_provider.dart';
 import '../../../providers/company_provider.dart';
 
 class CartScreen extends StatefulWidget {
+  static const routeName = '/cart-screen';
   @override
   _CartScreenState createState() => _CartScreenState();
 }

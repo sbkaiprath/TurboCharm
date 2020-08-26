@@ -37,7 +37,7 @@ class Section extends StatelessWidget {
                   Transform.translate(
                     offset: Offset(-50, 0),
                     child: Text(
-                      "Welcome to\nAuto Charm",
+                      "Welcome to\nTurbo Log",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.w500,

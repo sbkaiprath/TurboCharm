@@ -20,7 +20,7 @@ class CartItem {
 
 class Cart extends ChangeNotifier {
   Map<String, CartItem> _items = {
-    '20': CartItem(
+    /* '20': CartItem(
       cartId: 'dgsdhu95959',
       title: 'Turbocharger',
       price: 29900,
@@ -35,7 +35,7 @@ class Cart extends ChangeNotifier {
       companyId: 'qsdd56',
       quantity: 2,
       carId: 'car125',
-    ),
+    ),*/
   };
   Map<String, CartItem> get items {
     return _items;
