@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../screen/cart_screen.dart';
-import '../screen/menu_screen.dart';
-import '../screen/homepage_screen.dart';
+import 'package:turbocharm/user/screen/profile/user_profile.dart';
+import '../screen/cart/cart_screen.dart';
+import '../screen/home/homepage_screen.dart';
 
 class BottomDownBar extends StatefulWidget {
   static const routeName = '/bottom_bar';
@@ -15,7 +15,11 @@ class _BottomDownBarState extends State<BottomDownBar> {
   List<Widget> _page;
   @override
   void initState() {
-    _page = [HomepageScreen(), CartScreen(), MenuScreen()];
+    _page = [
+      HomepageScreen(),
+      CartScreen(),
+      UserProfile(),
+    ];
     super.initState();
   }
 
@@ -32,28 +36,32 @@ class _BottomDownBarState extends State<BottomDownBar> {
       body: _page[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 4,
-        backgroundColor: Colors.white,
-        fixedColor: Theme.of(context).accentColor,
+        fixedColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        selectedIconTheme: IconThemeData(color: Colors.white),
+        unselectedIconTheme: IconThemeData(color: Colors.white54),
+        selectedLabelStyle: TextStyle(
+          fontSize: 10.2,
+          fontWeight: FontWeight.w500,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.w300,
+        ),
         onTap: _onSelect,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text(
-                "Home",
-                style: Theme.of(context).textTheme.subtitle1,
-              )),
+            icon: Icon(Icons.home),
+            title: Text("Home"),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              title: Text(
-                "Cart",
-                style: Theme.of(context).textTheme.subtitle1,
-              )),
+            icon: Icon(Icons.shopping_cart),
+            title: Text("Cart"),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              title: Text(
-                "Menu",
-                style: Theme.of(context).textTheme.bodyText1,
-              ))
+            icon: Icon(Icons.person_outline),
+            title: Text("Profile"),
+          )
         ],
         currentIndex: _selectedIndex,
       ),

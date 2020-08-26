@@ -40,7 +40,7 @@ class ErrorDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
-                    "Invalid Responce !",
+                    "Invalid Response !",
                     style: TextStyle(
                         fontSize: 28.0,
                         fontWeight: FontWeight.w600,
@@ -61,7 +61,7 @@ class ErrorDialog extends StatelessWidget {
                   ),
                   SizedBox(height: 24.0),
                   InkWell(
-                      splashColor: Colors.green,
+                      splashColor: Colors.white,
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
                         Navigator.of(context).pop();
@@ -73,12 +73,12 @@ class ErrorDialog extends StatelessWidget {
                           "OK",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Theme.of(context).accentColor,
                               fontWeight: FontWeight.w700,
                               fontSize: 20),
                         ),
                         decoration: BoxDecoration(
-                            color: Colors.red,
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(32)),
                       ))
                 ],
@@ -88,10 +88,10 @@ class ErrorDialog extends StatelessWidget {
               left: 16,
               right: 16,
               child: CircleAvatar(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.white,
                 child: Icon(
                   Icons.not_interested,
-                  color: Colors.white,
+                  color: Theme.of(context).accentColor,
                   size: 50,
                 ),
                 radius: 50,

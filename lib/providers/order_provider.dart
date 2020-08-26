@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:turbocharm/models/car.dart';
 import 'package:turbocharm/models/order.dart';
 import 'package:turbocharm/models/parts.dart';
-import 'package:turbocharm/models/user.dart';
+import 'package:turbocharm/providers/user_provider.dart';
 
 class OrderProvider with ChangeNotifier {
   List<OrderItem> _orders = [
@@ -57,7 +57,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -87,7 +88,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -116,7 +118,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -146,7 +149,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -176,7 +180,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -186,6 +191,7 @@ class OrderProvider with ChangeNotifier {
   ];
 
   List<OrderItem> get orders => List.from(_orders);
+
   List<OrderItem> get acceptedOrders {
     var orders = [];
     _orders.forEach((element) {
@@ -217,16 +223,22 @@ class OrderProvider with ChangeNotifier {
   }
 
   void addOrder(
-      User user, List<Parts> parts, double total, OrderStatus orderStatus) {
+    User user,
+    List<Parts> parts,
+    double total,
+    OrderStatus orderStatus,
+  ) {
     _orders.insert(
-        0,
-        OrderItem(
-            id: DateTime.now().toString(),
-            user: user,
-            dateTime: DateTime.now(),
-            parts: parts,
-            total: total,
-            orderStatus: orderStatus));
+      0,
+      OrderItem(
+        id: DateTime.now().toString(),
+        user: user,
+        dateTime: DateTime.now(),
+        parts: parts,
+        total: total,
+        orderStatus: orderStatus,
+      ),
+    );
     notifyListeners();
   }
 }

@@ -43,6 +43,8 @@ class _BottomNavbar extends State<BottomNavbar> {
           fontSize: 10,
           fontWeight: FontWeight.w300,
         ),
+        selectedIconTheme: IconThemeData(color: Colors.white),
+        unselectedIconTheme: IconThemeData(color: Colors.white54),
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

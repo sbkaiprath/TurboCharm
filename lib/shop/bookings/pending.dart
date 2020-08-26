@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turbocharm/models/parts.dart';
-import 'package:turbocharm/models/user.dart';
 import 'package:turbocharm/providers/order_provider.dart';
+import 'package:turbocharm/providers/user_provider.dart';
 import 'package:turbocharm/shop/bookings/book_info.dart';
 
 class Pending extends StatelessWidget {
