@@ -206,7 +206,8 @@ class _PartShopState extends State<PartShop> {
                               cartData.items[companyItem.parts.id].quantity
                                       .toString() !=
                                   null)
-                          ? Column(
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
                                   '${cartItem.quantity} Items Selected',
@@ -216,8 +217,7 @@ class _PartShopState extends State<PartShop> {
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
-                                  (cartItem.price * cartItem.quantity)
-                                      .toString(),
+                                  ' ₹ ${cartItem.price * cartItem.quantity}',
                                   textAlign: TextAlign.end,
                                   style: TextStyle(
                                     color: Theme.of(context).accentColor,

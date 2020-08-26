@@ -57,7 +57,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -87,7 +88,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -116,7 +118,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -146,7 +149,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,
@@ -176,7 +180,8 @@ class OrderProvider with ChangeNotifier {
         Parts(
           id: '6',
           car: Car(id: 'car124', brand: 'Hero', carName: "Escalator"),
-          partImageUrl: null,
+          partImageUrl:
+              'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/media/267456/a-revving-maserati-engine-has-a-biological-effect-on-women-photo-248906-s-original.jpg?fill=2:1&resize=480:*',
           partPrice: 2000,
           partname: "Sound Motor",
           isAvailable: false,

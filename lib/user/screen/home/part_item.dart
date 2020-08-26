@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../models/parts.dart';
-import '../screen/home/part_options.dart';
+import '../../../models/parts.dart';
+import 'part_options.dart';
 
 class PartItem extends StatelessWidget {
   final Parts partItem;

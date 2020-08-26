@@ -27,10 +27,18 @@ class Cart extends ChangeNotifier {
       companyId: 'qsdd56',
       quantity: 2,
       carId: 'car125',
-    )
+    ),
+    '21': CartItem(
+      cartId: 'dgsdhu95959',
+      title: 'Turbocharger',
+      price: 29900,
+      companyId: 'qsdd56',
+      quantity: 2,
+      carId: 'car125',
+    ),
   };
   Map<String, CartItem> get items {
-    return {..._items};
+    return _items;
   }
 
   int get itemCount {
