@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './user/screen/login_screen.dart';
+import './shop/shop_login_screen.dart';
 
 class Section extends StatelessWidget {
   static const routeName = '/section';
@@ -36,7 +37,7 @@ class Section extends StatelessWidget {
                   Transform.translate(
                     offset: Offset(-50, 0),
                     child: Text(
-                      "Welcome to\nAuto Charm",
+                      "Welcome to\nTurbo Log",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.w500,
@@ -76,7 +77,7 @@ class Section extends StatelessWidget {
                   ),
                   FlatButton(
                     onPressed: () {
-                      // Navigator.pushNamed(context, );
+                      Navigator.pushNamed(context, ShopLoginScreen.routeName);
                     },
                     child: Container(
                       decoration: BoxDecoration(
