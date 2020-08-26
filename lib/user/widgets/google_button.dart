@@ -14,37 +14,49 @@ class GoogleButton extends StatefulWidget {
 class _GoogleButtonState extends State<GoogleButton> {
   @override
   Widget build(BuildContext context) {
-    return RawMaterialButton(
-      elevation: 4,
-      fillColor: Theme.of(context).accentColor,
-      padding: EdgeInsets.all(15),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(Icons.location_searching),
-          SizedBox(
-            width: 8,
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+            color: Theme.of(context).accentColor,
+            borderRadius: BorderRadius.circular(7),
+            border: Border.all(color: Theme.of(context).accentColor, width: 2)),
+        margin: EdgeInsets.fromLTRB(30.0, 5.0, 30.0, 5.0),
+        child: InkWell(
+          onTap: () {
+            setState(() {
+              timeDilation = 1.0;
+            });
+            Navigator.pushReplacementNamed(context, SelectCarScreen.routeName);
+          },
+          child: Row(
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(7),
+                    topLeft: Radius.circular(7),
+                    bottomRight: Radius.circular(4),
+                    topRight: Radius.circular(4)),
+                child: Image.asset(
+                  'assets/images/google.png',
+                  height: 48.0,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                'Continue with Google',
+                softWrap: true,
+                overflow: TextOverflow.fade,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17),
+              ),
+            ],
           ),
-          RichText(
-            text: TextSpan(
-              style: Theme.of(context).textTheme.bodyText1,
-              children: <TextSpan>[
-                TextSpan(text: 'Continue with '),
-                TextSpan(
-                    text: 'Google',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
-      shape: StadiumBorder(),
-      onPressed: () {
-        setState(() {
-          timeDilation = 1.0;
-        });
-        Navigator.pushReplacementNamed(context, SelectCarScreen.routeName);
-      },
     );
   }
 }
