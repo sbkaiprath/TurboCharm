@@ -23,7 +23,8 @@ class HomepageScreen extends StatelessWidget {
         Provider.of<PartProvider>(context, listen: false).getParts(carId);
     return Scaffold(
       appBar: AppBar(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        elevation: 0,
+        backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         leading: Container(
           height: MediaQuery.of(context).size.height * 0.09,
@@ -56,7 +57,9 @@ class HomepageScreen extends StatelessWidget {
                 Text(
                   "Location",
                   style: TextStyle(
-                      color: Theme.of(context).indicatorColor, fontSize: 18),
+                      color: Theme.of(context).indicatorColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400),
                 ),
               ],
             ),
@@ -69,11 +72,11 @@ class HomepageScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            SizedBox(height: mediaQuery.size.height * 0.01),
+            SizedBox(height: mediaQuery.size.height * 0.04),
             Row(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 10),
+                  padding: const EdgeInsets.only(left: 15),
                   child: Text(
                     "TRENDING",
                     style: TextStyle(
@@ -82,6 +85,12 @@ class HomepageScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
+                Expanded(
+                    child: Divider(
+                  color: Color.fromRGBO(230, 231, 232, 1),
+                  indent: 18,
+                  endIndent: 12,
+                ))
               ],
             ),
             Container(
@@ -95,23 +104,32 @@ class HomepageScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
             ),
-            Container(
-              height: 1,
-              decoration:
-                  BoxDecoration(color: Color.fromRGBO(230, 231, 232, 1)),
+            SizedBox(
+              height: 10,
+            ),
+            Divider(
+              color: Color.fromRGBO(230, 231, 232, 1),
+              endIndent: 12,
+              indent: 13,
             ),
             SizedBox(height: 30),
             Consumer<CarProvider>(
               builder: (context, value, child) => Container(
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 height: mediaQuery.size.height * 0.3,
                 width: mediaQuery.size.width * 0.9,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(30)),
-                child: Image.network(
-                  value.items
-                      .firstWhere((element) => element.id == carId)
-                      .imageUrl,
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Image.network(
+                        value.items
+                            .firstWhere((element) => element.id == carId)
+                            .imageUrl,
+                        fit: BoxFit.cover),
+                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
@@ -184,6 +202,11 @@ class _DropItemState extends State<DropItem> {
           )
         : Column(
             children: [
+              Divider(
+                color: Color.fromRGBO(230, 231, 232, 1),
+                endIndent: 12,
+                indent: 13,
+              ),
               Container(
                 padding: EdgeInsets.only(left: 20),
                 alignment: Alignment.topLeft,

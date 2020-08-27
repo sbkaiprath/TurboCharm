@@ -8,12 +8,13 @@ class TrendingScrollSingle extends StatelessWidget {
       children: <Widget>[
         Container(
           child: Card(
+            shadowColor: Colors.white24,
             child: Text(
               "X",
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 120, fontWeight: FontWeight.bold),
             ),
-            elevation: 10,
+            elevation: 5,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25),
             ),
