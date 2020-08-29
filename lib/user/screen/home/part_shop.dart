@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:turbocharm/providers/cart_provider.dart';
 import 'package:turbocharm/providers/company_provider.dart';
 import '../../widgets/badge.dart';
+import '../cart/cart_screen.dart';
 
 class PartShop extends StatefulWidget {
   static const routeName = '/part_shop';
@@ -50,7 +51,10 @@ class _PartShopState extends State<PartShop> {
                       color: Colors.white,
                       size: 24,
                     ),
-                    onPressed: () {}),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed(CartScreen.routeName);
+                    }),
               ),
             ),
           ),

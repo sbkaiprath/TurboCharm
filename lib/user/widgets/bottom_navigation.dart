@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:turbocharm/user/screen/profile/user_profile.dart';
-import '../screen/cart/cart_screen.dart';
 import '../screen/home/homepage_screen.dart';
 import '../screen/services/services_screen.dart';
 
@@ -60,7 +59,9 @@ class _BottomDownBarState extends State<BottomDownBar> {
             title: Text("Search"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
+            icon: _selectedIndex == 2
+                ? Icon(Icons.person)
+                : Icon(Icons.person_outline),
             title: Text("Profile"),
           )
         ],

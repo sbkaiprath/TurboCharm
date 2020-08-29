@@ -6,6 +6,8 @@ import 'part_item.dart';
 import 'package:provider/provider.dart';
 import '../../../providers/cart_provider.dart';
 import '../../widgets/badge.dart';
+import '../../../providers/trending_parts_provider.dart';
+import '../cart/cart_screen.dart';
 
 class ScreenArguments {
   final String brandName;
@@ -56,7 +58,9 @@ class HomepageScreen extends StatelessWidget {
                   color: Colors.white,
                   size: 20,
                 ),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.pushNamed(context, CartScreen.routeName);
+                }),
           ),
           InkWell(
             onTap: () {},
@@ -105,12 +109,15 @@ class HomepageScreen extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.20,
               width: double.infinity,
-              child: ListView.builder(
-                padding: EdgeInsets.symmetric(
-                    vertical: 8, horizontal: mediaQuery.size.width * .02),
-                itemBuilder: (context, index) => TrendingScrollSingle(),
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
+              child: Consumer<TrendingModel>(
+                builder: (context, value, child) => ListView.builder(
+                  padding: EdgeInsets.symmetric(
+                      vertical: 8, horizontal: mediaQuery.size.width * .02),
+                  itemBuilder: (context, index) =>
+                      TrendingScrollSingle(value.items[index]),
+                  itemCount: value.items.length,
+                  scrollDirection: Axis.horizontal,
+                ),
               ),
             ),
             SizedBox(

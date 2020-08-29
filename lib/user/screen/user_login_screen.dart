@@ -114,14 +114,14 @@ class _ReceivePromotionState extends State<ReceivePromotion> {
         selected: true,
         controlAffinity: ListTileControlAffinity.leading,
         title: Text(
-          "Receive promotional mails from \nAuto Charm",
+          "Receive promotional mails from \nTurbolog",
           style: TextStyle(color: Colors.white70, fontSize: 16),
         ),
         activeColor: Theme.of(context).accentColor,
         value: timeDilation != 1.0,
         onChanged: (value) {
           setState(() {
-            timeDilation = value ? 7.0 : 1.0;
+            timeDilation = value ? 3.0 : 1.0;
           });
         });
   }

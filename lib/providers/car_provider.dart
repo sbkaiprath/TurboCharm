@@ -50,4 +50,15 @@ class CarProvider with ChangeNotifier {
     return _items.firstWhere(
         (element) => element.brand == brandName && element.carName == carName);
   }
+
+  String carIdByName(String carName, String brandName) {
+    return _items
+        .firstWhere((element) =>
+            element.brand == brandName && element.carName == carName)
+        .id;
+  }
+
+  Car findById(String carId) {
+    return _items.firstWhere((element) => element.id == carId);
+  }
 }

@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:turbocharm/providers/car_provider.dart';
+import 'package:turbocharm/services/database.dart';
 import '../widgets/bottom_navigation.dart';
 import './error_dialog.dart';
 import '../screen/home/homepage_screen.dart';
@@ -36,7 +38,8 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
     carData.items.forEach((element) {
       brand.add(element.brand);
     });
-    //print(brand);
+
+    final user = Provider.of<User>(context);
     return Column(
       children: <Widget>[
         DropdownButton(
@@ -95,8 +98,8 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
         IconButton(
             onPressed: () {
               if (selectBrand != null && selectCar != null) {
-                Navigator.popUntil(context, (route) => false);
-                Navigator.pushNamed(context, BottomDownBar.routeName,
+                DatabaseService(uid: user.uid).updateUserData(carData.carIdByName(selectCar, selectBrand));
+                Navigator.popAndPushNamed(context, BottomDownBar.routeName,
                     arguments: ScreenArguments(
                       selectBrand,
                       selectCar,
