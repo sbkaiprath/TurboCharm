@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "604951430716",
+    "firebase_url": "https://turbolog-ac491.firebaseio.com",
+    "project_id": "turbolog-ac491",
+    "storage_bucket": "turbolog-ac491.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604951430716:android:af75acfee3876b2639e539",
+        "android_client_info": {
+          "package_name": "com.sentientpi.turbolog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604951430716-p25hbitm5nm7h4246lu8v3b171nctcnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQI9zTI9Rd60HYZWrW28LMcgB08bmd6lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604951430716-p25hbitm5nm7h4246lu8v3b171nctcnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
