@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Turbo Log',
           theme: ThemeData(
-            primaryColor: Color.fromRGBO(35, 31, 32, 1),
+            primaryColor: Colors.black,
             accentColor: Color.fromRGBO(29, 181, 29, 1),
             primaryColorLight: Color.fromRGBO(25, 25, 27, 1),
             backgroundColor: Color.fromRGBO(19, 19, 20, 1),
@@ -75,7 +77,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
           ),
-          home: Section(),
+          home: SplashScreen(),
           routes: {
             Section.routeName: (ctx) => Section(),
             UserWrapper.routeName: (ctx) => UserWrapper(),
@@ -92,6 +94,35 @@ class MyApp extends StatelessWidget {
           },
         ),
       )),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2),
+        () => Navigator.of(context).pushReplacementNamed(Section.routeName));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Container(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        child: Image.asset(
+          'assets/images/black_name_logo.png',
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   }
 }

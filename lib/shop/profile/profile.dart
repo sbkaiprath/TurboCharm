@@ -172,55 +172,51 @@ class ProfileStat extends StatelessWidget {
       elevation: 5.0,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 22.0),
-        child: Row(
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Expanded(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "Services",
-                    style: TextStyle(
-                      color: Theme.of(context).buttonColor,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+            Column(
+              children: <Widget>[
+                Text(
+                  "Services",
+                  style: TextStyle(
+                    color: Theme.of(context).buttonColor,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(
-                    height: 5.0,
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  services.toString(),
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Theme.of(context).buttonColor,
                   ),
-                  Text(
-                    services.toString(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).buttonColor,
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-            Expanded(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "Completed",
-                    style: TextStyle(
-                      color: Theme.of(context).buttonColor,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+            Column(
+              children: <Widget>[
+                Text(
+                  "Completed",
+                  style: TextStyle(
+                    color: Theme.of(context).buttonColor,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(
-                    height: 5.0,
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  completed.toString(),
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Theme.of(context).buttonColor,
                   ),
-                  Text(
-                    completed.toString(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Theme.of(context).buttonColor,
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ],
         ),

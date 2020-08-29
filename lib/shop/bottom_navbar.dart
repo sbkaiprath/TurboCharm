@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:turbocharm/shop/bookings/bookings.dart';
 import 'package:turbocharm/shop/profile/profile.dart';
 import 'package:turbocharm/shop/services/services.dart';
-import '';
-
 class BottomNavbar extends StatefulWidget {
   static const routeName = 'bottom-navbar';
   @override

@@ -195,4 +195,19 @@ class PartProvider with ChangeNotifier {
     _items.removeAt(existingProductIndex);
     notifyListeners();
   }
+
+  void modifyPartsAvailability(
+    String partId,
+  ) {
+    Parts existingPart = _items.firstWhere((element) => element.id == partId);
+    existingPart = Parts(
+        id: existingPart.id,
+        car: existingPart.car,
+        partImageUrl: existingPart.partImageUrl,
+        partPrice: existingPart.partPrice,
+        partname: existingPart.partname,
+        isAvailable: !existingPart.isAvailable);
+
+    _items[_items.indexWhere((element) => element.id == partId)] = existingPart;
+  }
 }

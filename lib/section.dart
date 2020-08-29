@@ -12,116 +12,92 @@ class Section extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
-        body: Stack(
-      children: <Widget>[
-        Container(
-          height: MediaQuery.of(context).size.height * 1,
+        backgroundColor: Colors.black,
+        body: Container(
           width: double.infinity,
-          child: Image.asset(
-            "assets/images/car_background.jpg",
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          height: MediaQuery.of(context).size.height * 1,
-          width: double.infinity,
-          decoration: BoxDecoration(color: Colors.black38),
-        ),
-        ListView(
-          children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height * .965,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 200),
-                  Transform.translate(
-                    offset: Offset(-50, 0),
-                    child: Text(
-                      "Welcome to\nTurbo Log",
-                      style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white54,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      print("user wrapper");
-                      return Navigator.of(context)
-                          .pushNamed(UserWrapper.routeName);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(blurRadius: 2, color: Colors.black)
-                          ],
-                          color: Theme.of(context).primaryColorLight,
-                          borderRadius: BorderRadius.circular(10)),
-                      alignment: Alignment.center,
-                      height: 60,
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      child: Text(
-                        "USER",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
-                          color: Theme.of(context).buttonColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, ShopLoginScreen.routeName);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(blurRadius: 2, color: Colors.black)
-                          ],
-                          color: Theme.of(context).primaryColorLight,
-                          borderRadius: BorderRadius.circular(10)),
-                      alignment: Alignment.center,
-                      height: 60,
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      child: Text(
-                        "SHOP",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
-                          color: Theme.of(context).buttonColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Spacer(),
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(color: Colors.white60, fontSize: 11),
-                      children: <TextSpan>[
-                        TextSpan(text: 'Designed by '),
-                        TextSpan(
-                            text: 'SentientPi',
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 18,
-                  )
-                ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 50),
+              Container(
+                width: 150,
+                height: 150,
+                child: Image.asset(
+                  'assets/images/black_logo.png',
+                  fit: BoxFit.cover,
+                ),
+                // colorFilter: ColorFilter.mode(Colors.black, BlendMode.color),
               ),
-            ),
-          ],
-        ),
-      ],
-    ));
+              SizedBox(height: 50),
+              Transform.translate(
+                offset: Offset(-50, 0),
+                child: Text(
+                  "Welcome to\nTurbo Log",
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white54,
+                  ),
+                ),
+              ),
+              SizedBox(height: 1),
+              RaisedButton(
+                onPressed: () {
+                  print("user wrapper");
+                  return Navigator.of(context).pushNamed(UserWrapper.routeName);
+                },
+                color: Color.fromRGBO(19, 19, 20, 1),
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "USER",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                      color: Theme.of(context).buttonColor,
+                    ),
+                  ),
+                ),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ShopLoginScreen.routeName);
+                },
+                color: Color.fromRGBO(19, 19, 20, 1),
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "SHOP",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                      color: Theme.of(context).buttonColor,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 1),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.white60, fontSize: 11),
+                    children: <TextSpan>[
+                      TextSpan(text: 'Designed by '),
+                      TextSpan(
+                          text: 'SentientPi',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }

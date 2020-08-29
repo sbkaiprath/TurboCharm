@@ -30,11 +30,12 @@ class _CartScreenState extends State<CartScreen> {
             firstCartItem.companyId, firstCartItem.carId, firstPartId);
     double charge = double.parse(cartData.getTotalCharge.toStringAsFixed(2));
     double gst = double.parse((charge * 0.18).toStringAsFixed(2));
-    double total = charge + gst;
+    double total = double.parse(((charge + gst) * 0.18).toStringAsFixed(2));
 
-    return Scaffold(
-      body: cartData.items.isEmpty
-          ? Center(
+    return cartData.items.isEmpty
+        ? Scaffold(
+            backgroundColor: Colors.black,
+            body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,8 +52,10 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ],
               ),
-            )
-          : ListView(
+            ),
+          )
+        : Scaffold(
+            body: ListView(
               children: [
                 CartCompanyInfo(company: company),
                 Divider(
@@ -197,6 +200,6 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ],
             ),
-    );
+          );
   }
 }

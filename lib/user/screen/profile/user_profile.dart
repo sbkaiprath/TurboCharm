@@ -10,7 +10,6 @@ import 'package:turbocharm/services/database.dart';
 import 'package:turbocharm/services/loading.dart';
 import 'package:turbocharm/user/screen/cart/cart_screen.dart';
 import 'package:turbocharm/user/screen/select_car_screen.dart';
-import '../../../providers/cart_provider.dart';
 
 class UserProfile extends StatelessWidget {
   @override

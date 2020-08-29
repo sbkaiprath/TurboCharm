@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:turbocharm/services/auth.dart';
 import '../screen/select_car_screen.dart';
 
+import 'package:flutter/scheduler.dart' show timeDilation;
+
 class GoogleButton extends StatefulWidget {
   const GoogleButton({
     Key key,
@@ -14,49 +16,50 @@ class GoogleButton extends StatefulWidget {
 class _GoogleButtonState extends State<GoogleButton> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
-          borderRadius: BorderRadius.circular(7),
-          border: Border.all(color: Theme.of(context).accentColor, width: 2)),
-      margin: EdgeInsets.fromLTRB(30.0, 5.0, 30.0, 5.0),
-      child: InkWell(
-        onTap: () async {
-          bool res = await AuthService().signInWithGoogle();
-          if (!res) {
-            print('error login with google');
-            return;
-          }
-          Navigator.pushReplacementNamed(context, SelectCarScreen.routeName);
-        },
-        child: Row(
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(7),
-                  topLeft: Radius.circular(7),
-                  bottomRight: Radius.circular(4),
-                  topRight: Radius.circular(4)),
-              child: Image.asset(
-                'assets/images/google.png',
-                height: 48.0,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              'Continue with Google',
-              softWrap: true,
-              overflow: TextOverflow.fade,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17),
-            ),
-          ],
+    return Column(
+      children: [
+        FlatButton.icon(
+          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          color: Colors.white,
+          onPressed: () async {
+            bool res = await AuthService().signInWithGoogle();
+            if (!res) {
+              print('error login with google');
+              return null;
+            }
+            Navigator.pushReplacementNamed(context, SelectCarScreen.routeName);
+          },
+          icon: Image.asset(
+            'assets/images/google.png',
+            height: 48.0,
+          ),
+          label: Text(
+            'Continue with Google',
+            softWrap: true,
+            overflow: TextOverflow.fade,
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17),
+          ),
         ),
-      ),
+        Container(
+          margin: EdgeInsets.all(20),
+          width: MediaQuery.of(context).size.width * .7,
+          child: CheckboxListTile(
+              selected: true,
+              controlAffinity: ListTileControlAffinity.leading,
+              title: Text(
+                "Receive promotional mails\n from Auto Charm",
+                style: TextStyle(color: Colors.white70, fontSize: 16),
+              ),
+              activeColor: Theme.of(context).accentColor,
+              value: timeDilation != 1.0,
+              onChanged: (value) {
+                setState(() {
+                  timeDilation = value ? 3.0 : 1.0;
+                });
+              }),
+        ),
+      ],
     );
   }
 }

@@ -26,6 +26,7 @@ class HomepageScreen extends StatelessWidget {
     var partList =
         Provider.of<PartProvider>(context, listen: false).getParts(carId);
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         titleSpacing: 1,
         elevation: 0,
@@ -33,7 +34,7 @@ class HomepageScreen extends StatelessWidget {
         leading: Container(
           height: MediaQuery.of(context).size.height * 0.09,
           child: Image.asset(
-            'assets/images/logo.png',
+            'assets/images/black_logo.png',
             fit: BoxFit.contain,
           ),
         ),

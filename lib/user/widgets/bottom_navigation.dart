@@ -35,6 +35,7 @@ class _BottomDownBarState extends State<BottomDownBar> {
       backgroundColor: Theme.of(context).primaryColor,
       body: _page[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
         elevation: 4,
         fixedColor: Colors.white,
         unselectedItemColor: Colors.grey,

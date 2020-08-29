@@ -8,21 +8,21 @@ class CarProvider with ChangeNotifier {
       brand: "Honda",
       carName: "Amaze",
       imageUrl:
-          'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+          'https://autotechreview.com/images/All-New-Amaze.jpg',
     ),
     Car(
       id: '8565k',
       brand: 'Hero',
       carName: 'Splender',
       imageUrl:
-          'https://specials-images.forbesimg.com/imageserve/5d35eacaf1176b0008974b54/960x0.jpg?cropX1=790&cropX2=5350&cropY1=784&cropY2=3349',
+          'https://imgd.aeplcdn.com/1280x720/bikewaleimg/ec/480/img/l/hero-splendor-pro-front-three-quarter-7284.jpg?v=201711021421',
     ),
     Car(
       id: 'car124',
       brand: 'Hero',
       carName: "Escalator",
       imageUrl:
-          'https://www.extremetech.com/wp-content/uploads/2019/12/SONATA-hero-option1-764A5360-edit.jpg',
+          'https://cdn1.acedms.com/uploads/category/yamaha/20171106064335000000-681474636627970689.jpg',
     ),
     Car(
       id: 'car125',
