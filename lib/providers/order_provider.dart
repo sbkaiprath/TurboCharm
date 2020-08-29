@@ -7,7 +7,7 @@ import 'package:turbocharm/providers/user_provider.dart';
 class OrderProvider with ChangeNotifier {
   List<OrderItem> _orders = [
     OrderItem(
-      id: null,
+      id: '1',
       orderStatus: OrderStatus.pending,
       user: User(name: "Sura", mobile: 2345671234, email: "sura@gmail.com"),
       dateTime: DateTime.now(),
@@ -35,7 +35,7 @@ class OrderProvider with ChangeNotifier {
       ],
     ),
     OrderItem(
-      id: null,
+      id: '2',
       orderStatus: OrderStatus.pending,
       user:
           User(name: "Krish", mobile: 2345671234, email: "ramettan@gmail.com"),
@@ -66,7 +66,7 @@ class OrderProvider with ChangeNotifier {
       ],
     ),
     OrderItem(
-      id: null,
+      id: '3',
       orderStatus: OrderStatus.accepted,
       user:
           User(name: "Navani", mobile: 2345671234, email: "ramettan@gmail.com"),
@@ -97,7 +97,7 @@ class OrderProvider with ChangeNotifier {
       ],
     ),
     OrderItem(
-      id: null,
+      id: '4',
       orderStatus: OrderStatus.accepted,
       user: User(name: "Ram", mobile: 2345671234, email: "ramettan@gmail.com"),
       dateTime: DateTime.now(),
@@ -127,7 +127,7 @@ class OrderProvider with ChangeNotifier {
       ],
     ),
     OrderItem(
-      id: null,
+      id: '5',
       orderStatus: OrderStatus.completed,
       user:
           User(name: "Kichu", mobile: 2345671234, email: "ramettan@gmail.com"),
@@ -158,7 +158,7 @@ class OrderProvider with ChangeNotifier {
       ],
     ),
     OrderItem(
-      id: null,
+      id: '6',
       orderStatus: OrderStatus.completed,
       user:
           User(name: "Shuaib", mobile: 2345671234, email: "ramettan@gmail.com"),
@@ -240,5 +240,24 @@ class OrderProvider with ChangeNotifier {
       ),
     );
     notifyListeners();
+  }
+
+  void modifyOrderStatus(String orderId, OrderStatus orderStatus) {
+    OrderItem existingOrder =
+        _orders.firstWhere((element) => element.id == orderId);
+    existingOrder = OrderItem(
+        id: existingOrder.id,
+        user: existingOrder.user,
+        parts: existingOrder.parts,
+        dateTime: existingOrder.dateTime,
+        total: existingOrder.total,
+        orderStatus: orderStatus);
+
+    _orders[_orders.indexWhere((element) => element.id == orderId)] =
+        existingOrder;
+  }
+
+  void removeOrder(String orderId) {
+    _orders.removeWhere((element) => element.id == orderId);
   }
 }

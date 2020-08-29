@@ -43,13 +43,9 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
     return Column(
       children: <Widget>[
         DropdownButton(
-            style:
-                TextStyle(color: Theme.of(context).accentColor, fontSize: 25),
-            hint: Text(
-              'PLEASE CHOOSE A BRAND',
-              style:
-                  TextStyle(color: Colors.white60, fontWeight: FontWeight.w400),
-            ), // Not necessary for Option 1
+            hint: Text('Choose Your Brand                ',
+                style: TextStyle(
+                    color: Colors.white60, fontWeight: FontWeight.w100)),
             value: selectBrand,
             onChanged: (newValue) {
               setState(() {
@@ -59,24 +55,14 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
             },
             items: brand.toSet().toList().map((car) {
               return DropdownMenuItem(
-                child: Text(
-                  car,
-                  style: TextStyle(color: Colors.white),
-                ),
-                value: car,
-              );
+                  child: Text(car, style: TextStyle(color: Colors.white)),
+                  value: car);
             }).toList()),
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
         DropdownButton(
-            style:
-                TextStyle(color: Theme.of(context).accentColor, fontSize: 25),
-            hint: Text(
-              '  PLEASE CHOOSE A CAR  ',
-              style:
-                  TextStyle(color: Colors.white60, fontWeight: FontWeight.w400),
-            ), // Not necessary for Option 1
+            hint: Text('Choose Your Car                     ',
+                style: TextStyle(
+                    color: Colors.white60, fontWeight: FontWeight.w100)),
             value: selectCar,
             onChanged: (newValue) {
               setState(() {
@@ -85,20 +71,15 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
             },
             items: carData.carName(selectBrand).toSet().toList().map((car) {
               return DropdownMenuItem(
-                child: Text(
-                  car,
-                  style: TextStyle(color: Colors.white),
-                ),
-                value: car,
-              );
+                  child: Text(car, style: TextStyle(color: Colors.white)),
+                  value: car);
             }).toList()),
-        SizedBox(
-          height: 10,
-        ),
+        SizedBox(height: 10),
         IconButton(
             onPressed: () {
               if (selectBrand != null && selectCar != null) {
-                DatabaseService(uid: user.uid).updateUserData(carData.carIdByName(selectCar, selectBrand));
+                DatabaseService(uid: user.uid).updateUserData(
+                    carData.carIdByName(selectCar, selectBrand));
                 Navigator.popAndPushNamed(context, BottomDownBar.routeName,
                     arguments: ScreenArguments(
                       selectBrand,
@@ -113,14 +94,17 @@ class _DropdownWidgetsState extends State<DropdownWidgets>
               builder: (context, child) {
                 return Transform.translate(
                     child: child,
-                    offset: Offset(_movementController.value * 4, 0));
+                    offset: Offset(_movementController.value * 4, 10));
               },
-              child: Transform.translate(
-                offset: Offset(5, 0),
-                child: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 60,
-                  color: Theme.of(context).accentColor,
+              child: Container(
+                height: 30,
+                child: Transform.translate(
+                  offset: Offset(5, 0),
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 30,
+                    color: Theme.of(context).accentColor,
+                  ),
                 ),
               ),
             )),

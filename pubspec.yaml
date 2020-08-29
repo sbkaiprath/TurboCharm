@@ -58,6 +58,8 @@ flutter:
     - assets/images/no_image.jpg
     - assets/images/logo.png
     - assets/images/name_logo.png
+    - assets/images/black_name_logo.png
+    - assets/images/black_logo.png
     
     
   # An image asset can refer to one or more resolution-specific "variants", see

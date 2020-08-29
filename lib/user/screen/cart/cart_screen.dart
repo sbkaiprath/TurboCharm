@@ -33,22 +33,25 @@ class _CartScreenState extends State<CartScreen> {
     double total = charge + gst;
 
     return cartData.items.isEmpty
-        ? Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.remove_shopping_cart,
-                  size: 30,
-                  color: Colors.white,
-                ),
-                Text(
-                  'Sorry the Cart is Empty',
-                  style: TextStyle(
-                      color: Colors.white, fontStyle: FontStyle.italic),
-                ),
-              ],
+        ? Scaffold(
+            backgroundColor: Colors.black,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.remove_shopping_cart,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    'Sorry the Cart is Empty',
+                    style: TextStyle(
+                        color: Colors.white, fontStyle: FontStyle.italic),
+                  ),
+                ],
+              ),
             ),
           )
         : Scaffold(

@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:turbocharm/models/order.dart';
 import 'package:turbocharm/models/parts.dart';
 import 'package:turbocharm/providers/order_provider.dart';
 import 'package:turbocharm/providers/user_provider.dart';
 import 'package:turbocharm/shop/bookings/book_info.dart';
 
-class Accepted extends StatelessWidget {
+class Accepted extends StatefulWidget {
+  @override
+  _AcceptedState createState() => _AcceptedState();
+}
+
+class _AcceptedState extends State<Accepted> {
   @override
   Widget build(BuildContext context) {
-    var orderList = Provider.of<OrderProvider>(context, listen: false).acceptedOrders;
+    var orderList =
+        Provider.of<OrderProvider>(context, listen: false).acceptedOrders;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView.builder(
@@ -21,6 +28,7 @@ class Accepted extends StatelessWidget {
             parts: orderList[i].parts,
             dateTime: orderList[i].dateTime,
             total: orderList[i].total,
+            orderStatus: orderList[i].orderStatus,
           );
         },
       ),
@@ -28,13 +36,14 @@ class Accepted extends StatelessWidget {
   }
 }
 
-class AcceptedBooking extends StatelessWidget {
+class AcceptedBooking extends StatefulWidget {
   final String id;
   final User user;
   final bool isFirst;
   final List<Parts> parts;
   final DateTime dateTime;
   final double total;
+  final OrderStatus orderStatus;
 
   AcceptedBooking({
     @required this.id,
@@ -43,10 +52,17 @@ class AcceptedBooking extends StatelessWidget {
     @required this.parts,
     @required this.dateTime,
     @required this.total,
+    @required this.orderStatus,
   });
 
   @override
+  _AcceptedBookingState createState() => _AcceptedBookingState();
+}
+
+class _AcceptedBookingState extends State<AcceptedBooking> {
+  @override
   Widget build(BuildContext context) {
+    final orderProvider = Provider.of<OrderProvider>(context);
     return Container(
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.all(10),
@@ -68,7 +84,7 @@ class AcceptedBooking extends StatelessWidget {
                 ),
               ),
               Text(
-                user.name.toString(),
+                widget.user.name.toString(),
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontSize: 15,
@@ -77,7 +93,7 @@ class AcceptedBooking extends StatelessWidget {
               ),
             ],
           ),
-          if (isFirst)
+          if (widget.isFirst)
             Text(
               "1st Time ",
               style: TextStyle(
@@ -86,12 +102,12 @@ class AcceptedBooking extends StatelessWidget {
               ),
             ),
           BookInfo(
-            parts: parts,
-            dateTime: dateTime,
-            total: total,
+            parts: widget.parts,
+            dateTime: widget.dateTime,
+            total: widget.total,
           ),
           FlatButton(
-            onPressed: null,
+            onPressed: () => orderProvider.modifyOrderStatus(widget.id, OrderStatus.completed),
             child: Container(
               alignment: Alignment.center,
               height: 40,
@@ -150,7 +166,7 @@ class Item extends StatelessWidget {
                           fit: BoxFit.fill,
                         )
                       : Image(
-                          image: AssetImage("assets/images/car_background.jpg"),
+                          image: AssetImage('assets/images/name_logo.png'),
                           fit: BoxFit.fill,
                         ),
                 ),

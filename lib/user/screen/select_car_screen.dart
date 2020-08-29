@@ -7,48 +7,84 @@ class SelectCarScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: mediaQuery.size.height * 1,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    // alignment: FractionalOffset.topCenter,
-                    fit: BoxFit.cover,
-                    image: AssetImage("assets/images/car_background.jpg"))),
-          ),
-          Container(
-            height: mediaQuery.size.height * 1,
-            width: double.infinity,
-            decoration: BoxDecoration(color: Colors.black38),
-          ),
-          Center(
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.6,
-              width: MediaQuery.of(context).size.width * .8,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.amber, width: 3)),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'Choose Car',
-                    style: TextStyle(
-                        color: Theme.of(context).accentColor,
-                        fontSize: 35,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Column(
+        backgroundColor: Colors.black,
+        body: Container(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: 50),
+              Container(
+                width: 150,
+                height: 150,
+                child: Image.asset(
+                  'assets/images/black_logo.png',
+                  fit: BoxFit.cover,
+                ),
+                // colorFilter: ColorFilter.mode(Colors.black, BlendMode.color),
+              ),
+              Center(
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  width: MediaQuery.of(context).size.width * .8,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey, width: 3)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
+                      Text(
+                        'CHOOSE YOUR CAR',
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                          fontSize: 25,
+                        ),
+                      ),
                       DropdownWidgets(),
+                      Text(
+                        'You can always change this in future !\nA default vehicle will help us provide latest  \nand trending upgrades for your vehicles .',
+                        style: TextStyle(
+                          color: Colors.white60,
+                        ),
+                      ),
                     ],
                   ),
+                ),
+              ),
+              SizedBox(height: 50),
+            ],
+          ),
+        ));
+  }
+}
 
-                  /*
+// Scaffold(
+//       body: Stack(
+//         children: <Widget>[
+//           Container(
+//             height: mediaQuery.size.height * 1,
+//             width: double.infinity,
+//             decoration: BoxDecoration(
+//               image: DecorationImage(
+//                 // alignment: FractionalOffset.topCenter,
+//                 fit: BoxFit.cover,
+//                 image: AssetImage('assets/images/name_logo.png'),
+//               ),
+//             ),
+//           ),
+//           Container(
+//             height: mediaQuery.size.height * 1,
+//             width: double.infinity,
+//             decoration: BoxDecoration(color: Colors.black38),
+//           ),
+
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+/*
                   Form(
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -65,30 +101,5 @@ class SelectCarScreen extends StatelessWidget {
                                 borderSide: BorderSide(
                                     color: Theme.of(context).indicatorColor))),
                       ),
-                    ),
+                    ), 
                   ),*/
-
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(
-                          color: Colors.white60,
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold),
-                      children: <TextSpan>[
-                        /*TextSpan(text: 'I: '),*/
-                        TextSpan(
-                          text:
-                              'You can always change this in future. a\ndefault vehicle will help us provide latest  \nand trending upgrades for your vehicles',
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}

@@ -68,8 +68,8 @@ class ServiceItem extends StatefulWidget {
 class _ServiceItemState extends State<ServiceItem> {
   @override
   Widget build(BuildContext context) {
-
     bool isAvailable = widget.isAvailable;
+    var partList = Provider.of<PartProvider>(context, listen: false);
     return FlatButton(
       onPressed: () {
         Navigator.of(context)
@@ -140,9 +140,7 @@ class _ServiceItemState extends State<ServiceItem> {
                         child: Switch(
                           value: isAvailable,
                           onChanged: (value) {
-                            setState(() {
-                               isAvailable = value;
-                            });
+                            partList.modifyPartsAvailability(widget.partId);
                           },
                           activeTrackColor: Colors.lightGreenAccent,
                           activeColor: Theme.of(context).accentColor,
