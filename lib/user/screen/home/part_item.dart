@@ -22,9 +22,12 @@ class PartItem extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.35,
                 height: MediaQuery.of(context).size.width * 0.3,
-                child: Image(
-                  image: NetworkImage(partItem.partImageUrl),
-                  fit: BoxFit.fill,
+                child: Hero(
+                  tag: partItem.id,
+                  child: Image(
+                    image: NetworkImage(partItem.partImageUrl),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             ),

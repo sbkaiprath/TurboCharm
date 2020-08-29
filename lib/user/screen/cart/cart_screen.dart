@@ -68,7 +68,7 @@ class _CartScreenState extends State<CartScreen> {
                   color: Colors.grey,
                   thickness: 2,
                 ),
-                Charges(charge: charge, gst: gst, total: total),
+                Charges(charge, gst, total, cartData),
               ],
             ),
           );

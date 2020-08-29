@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:turbocharm/user/screen/profile/user_profile.dart';
 import '../screen/cart/cart_screen.dart';
 import '../screen/home/homepage_screen.dart';
+import '../screen/services/services_screen.dart';
 
 class BottomDownBar extends StatefulWidget {
   static const routeName = '/bottom_bar';
@@ -17,7 +18,7 @@ class _BottomDownBarState extends State<BottomDownBar> {
   void initState() {
     _page = [
       HomepageScreen(),
-      CartScreen(),
+      ServicesHome(),
       UserProfile(),
     ];
     super.initState();
@@ -55,8 +56,8 @@ class _BottomDownBarState extends State<BottomDownBar> {
             title: Text("Home"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            title: Text("Cart"),
+            icon: Icon(Icons.search),
+            title: Text("Search"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),

@@ -43,7 +43,7 @@ class _PartShopState extends State<PartShop> {
               onPressed: () {},
               child: Consumer<Cart>(
                 builder: (context, value, ch) =>
-                    Badge(child: ch, value: cartData.itemCount.toString()),
+                    Badge(child: ch, value: cartData.itemCount),
                 child: IconButton(
                     icon: Icon(
                       Icons.shopping_cart,

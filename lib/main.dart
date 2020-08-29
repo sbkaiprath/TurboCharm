@@ -17,6 +17,7 @@ import './user/screen/select_car_screen.dart';
 import './user/widgets/bottom_navigation.dart';
 import 'package:turbocharm/shop/shop_login_screen.dart';
 import './user/screen/cart/cart_screen.dart';
+import './providers/service_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: CompanyItems()),
         ChangeNotifierProvider.value(value: Cart()),
         ChangeNotifierProvider.value(value: UserProvider()),
+        ChangeNotifierProvider.value(value: ServiceProviders())
       ],
       child: MaterialApp(
         title: 'Turbo Charm',

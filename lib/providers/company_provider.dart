@@ -22,7 +22,7 @@ class CompanyItem {
     @required this.companyName,
     this.companyImage,
     @required this.location,
-    @required this.parts,
+    this.parts,
   });
 }
 

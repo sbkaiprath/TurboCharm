@@ -45,6 +45,11 @@ class Cart extends ChangeNotifier {
     return _items.length;
   }
 
+  void clearCart() {
+    _items = {};
+    notifyListeners();
+  }
+
   double get getTotalCharge {
     double sum = 0;
     _items.values.forEach((element) {

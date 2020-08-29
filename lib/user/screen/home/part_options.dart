@@ -37,9 +37,12 @@ class PartOptions extends StatelessWidget {
                 height: 300,
                 width: double.infinity,
                 child: loadedItem.partImageUrl != null
-                    ? Image.network(
-                        loadedItem.partImageUrl,
-                        fit: BoxFit.fill,
+                    ? Hero(
+                        tag: partId,
+                        child: Image.network(
+                          loadedItem.partImageUrl,
+                          fit: BoxFit.fill,
+                        ),
                       )
                     : Image(
                         image: AssetImage("assets/images/no_image.jpg"),

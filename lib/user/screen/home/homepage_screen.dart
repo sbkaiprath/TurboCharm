@@ -4,6 +4,8 @@ import 'package:turbocharm/providers/parts_providers.dart';
 import '../../widgets/trending_scroll_single.dart';
 import 'part_item.dart';
 import 'package:provider/provider.dart';
+import '../../../providers/cart_provider.dart';
+import '../../widgets/badge.dart';
 
 class ScreenArguments {
   final String brandName;
@@ -23,9 +25,9 @@ class HomepageScreen extends StatelessWidget {
         Provider.of<PartProvider>(context, listen: false).getParts(carId);
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 1,
         elevation: 0,
         backgroundColor: Theme.of(context).primaryColor,
-        centerTitle: true,
         leading: Container(
           height: MediaQuery.of(context).size.height * 0.09,
           child: Image.asset(
@@ -45,12 +47,19 @@ class HomepageScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          RawMaterialButton(
-            padding: EdgeInsets.all(8),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
-            onPressed: () {},
+          Consumer<Cart>(
+            builder: (context, value, ch) =>
+                Badge(child: ch, value: value.itemCount),
+            child: IconButton(
+                icon: Icon(
+                  Icons.shopping_cart,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                onPressed: () {}),
+          ),
+          InkWell(
+            onTap: () {},
             child: Row(
               children: <Widget>[
                 Icon(Icons.location_on, color: Theme.of(context).accentColor),
@@ -65,7 +74,7 @@ class HomepageScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 15,
+            width: 10,
           )
         ],
       ),
@@ -119,17 +128,19 @@ class HomepageScreen extends StatelessWidget {
                     BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 height: mediaQuery.size.height * 0.3,
                 width: mediaQuery.size.width * 0.9,
-                child: ClipRRect(
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                child: Card(
+                  elevation: 5,
+                  shadowColor: Colors.black87,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                         value.items
                             .firstWhere((element) => element.id == carId)
                             .imageUrl,
                         fit: BoxFit.cover),
                   ),
-                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
@@ -164,41 +175,68 @@ class DropItem extends StatefulWidget {
   _DropItemState createState() => _DropItemState();
 }
 
-class _DropItemState extends State<DropItem> {
+class _DropItemState extends State<DropItem>
+    with SingleTickerProviderStateMixin {
   var _check = false;
+  AnimationController _controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 400),
+      reverseDuration: Duration(milliseconds: 400),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return !_check
-        ? Card(
-            elevation: 3,
-            shadowColor: Colors.grey,
-            color: Theme.of(context).primaryColor,
-            child: ListTile(
-              leading: Text(
-                widget.partList.length.toString(),
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30),
+        ? Column(
+            children: [
+              Divider(
+                color: Color.fromRGBO(230, 231, 232, 1),
+                endIndent: 12,
+                indent: 13,
               ),
-              title: Text('Parts Available',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  )),
-              trailing: IconButton(
-                  icon: Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _check = true;
-                    });
-                  }),
-            ),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                alignment: Alignment.topLeft,
+                child: Row(
+                  children: [
+                    Text(
+                      'PARTS AVAILABLE (${widget.partList.length.toString()})',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 17,
+                      ),
+                    ),
+                    Spacer(),
+                    IconButton(
+                        icon: Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _check = true;
+                          });
+                        }),
+                    SizedBox(
+                      width: 17,
+                    )
+                  ],
+                ),
+              ),
+              Divider(
+                color: Color.fromRGBO(230, 231, 232, 1),
+                endIndent: 12,
+                indent: 13,
+              )
+            ],
           )
         : Column(
             children: [
