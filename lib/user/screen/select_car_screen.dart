@@ -5,7 +5,6 @@ class SelectCarScreen extends StatelessWidget {
   static const routeName = '/select_car';
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
     return Scaffold(
         backgroundColor: Colors.black,
         body: Container(
